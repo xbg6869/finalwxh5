@@ -4,9 +4,11 @@ var  appSecret = '07a44d0c65dde4dc146cee766febe0d3';
 
 var  access_tokenUrl ='https://open.weixin.qq.com/connect/oauth2/authorize?appid='+appid+'&redirect_uri=http://xbg6869.tunnel.2bdata.com/callback&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
 
+var  dbController =require('./dbController');
 
 exports.indexRender=function (req,res) {
     //首页跳转微信授权处理
+    console.log(111)
     res.redirect(access_tokenUrl);
 }
 exports.authRender=function (req,res) {
@@ -38,9 +40,19 @@ exports.authRender=function (req,res) {
                     throw err;
                 }
                 var userInfo= JSON.parse(info);
+                var userName=userInfo.nickname;
+                var openId= userInfo.openid;
+                var headimgurl=userInfo.headimgurl;
+
+                 // if(dbController.exists()){
+                 //     console.log('该用户:'+userName+'已经在数据库中不需要重复存入');
+                 // }else{
+                 //     dbController.saveUser(userName,openId,headimgurl);
+                 // }
 
                 console.log('最终获取的当前用户的信息:'+userInfo.nickname+'');
                 console.log('最终获取的当前用户的地理位置:'+userInfo.city+'');
+                console.log('最终获取的当前用户的openId:'+userInfo.openid+'');
                 res.render('index');
 
             })

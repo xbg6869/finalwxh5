@@ -3,7 +3,7 @@ var path  = require('path');
 var ejs=  require('ejs')
 var app = express();
 var  fs= require('fs');
-var  mongoose= require('mongoose');
+
 var  bodyParser =  require('body-parser');
 
 
@@ -14,7 +14,6 @@ app.use(express.static(path.resolve('build')));
 app.engine('html',ejs.__express);
 app.set('view engine','html');
 var  routes = require('./public/router/router');
-
 
 
 app.get('/',routes.indexRender);
