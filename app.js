@@ -14,12 +14,10 @@ app.use(express.static(path.resolve('build')));
 app.engine('html',ejs.__express);
 app.set('view engine','html');
 var  routes = require('./public/router/router');
-
-
 app.get('/',routes.indexRender);
 
 
-app.get('/callback',routes.authRender);
+/*app.get('/callback',routes.authRender);*/
 
 
 app.listen(8080);

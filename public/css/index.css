@@ -1,150 +1,144 @@
-html,body{
+html {
     width: 100%;
     height: 100%;
-    overflow: hidden;
+}
+
+body {
+    width: 100%;
+    height: 100%;
     background: url("../img/bg.png") no-repeat;
     background-size: cover;
     overflow: hidden;
 }
-.firstPage{
+
+#ui-view {
+    width: 100%;
+    height: 100%;
+}
+
+.firstPage {
     width: 100%;
     height: 100%;
     position: relative;
+    background: url("../img/firstBg.gif") no-repeat;
+    background-size: cover;
 }
-.firstPage img:nth-of-type(1){
-    width: 100%;
-    height: 26.47rem;
-    position: absolute;
-    left: 0;
-    bottom:0;
-    opacity: 0;
-}
-.firstPage img:nth-of-type(2){
-    width: 13.45rem;
-    height: 15.81rem;
-    position: absolute;
-    left: 1.37rem;
-    top: 4.48rem;
-    opacity: 0;
-    animation-delay: 1s;
-}
-.firstPage img:nth-of-type(3){
+
+.firstPage img:nth-of-type(1) {
     width: 4.64rem;
     height: 2.22rem;
     position: absolute;
     left: .62rem;
     top: .45rem;
     opacity: 0;
-    animation-delay: 1.5s;
+    animation-delay: 1s;
 }
-.firstPage img:nth-of-type(4){
-    width: 8.83rem;
-    height: 11.32rem;
+
+.firstPage img:nth-of-type(2) {
+    width: 7.76rem;
+    height: 2.7rem;
     position: absolute;
-    left: .83rem;
-    top:4.25rem;
+    left: 3.84rem;
+    top: 19.78rem;
     opacity: 0;
     animation-delay: 2s;
+    z-index: 1;
 }
-.firstPage img:nth-of-type(5){
-    width: 6.71rem;
-    height: 11.57rem;
-    position: absolute;
-    left: 7.57rem;
-    top:.52rem;
-    opacity: 0;
-    animation-delay: 2.5s;
-}
-.firstPage img:nth-of-type(6){
+
+.firstPage img:nth-of-type(3) {
     width: 7.76rem;
-    height: 3.7rem;
+    height: 3.4rem;
     position: absolute;
     left: 3.84rem;
-    top:20.34rem;
+    top: 19.3rem;
     opacity: 0;
-    animation-delay: 3s;
+    animation-delay: 2s;
+    z-index: 2;
 }
-.firstPage img:nth-of-type(7){
-    width: 7.76rem;
-    height: 4.4rem;
-    position: absolute;
-    left: 3.84rem;
-    top:19.63rem;
-    opacity: 0;
-    animation-delay: 3s;
-}
-.firstPage img:nth-of-type(8){
-    width: 4.25rem;
-    height: 1.47rem;
-    position: absolute;
-    left: 5.45rem;
-    top:24.63rem;
-    opacity: 0;
-    animation-delay: 3.5s;
-}
-.firstPage img:nth-of-type(9){
+
+.firstPage img:nth-of-type(4){
     width: 4.25rem;
     height: 1.37rem;
     position: absolute;
     left: 5.45rem;
-    top:24.53rem;
+    top: 22.78rem;
     opacity: 0;
-    animation-delay: 3.5s;
+    animation-delay: 2.5s;
+    z-index: 1;
 }
-.rulePage{
+
+.firstPage img:nth-of-type(5) {
+    width: 4.25rem;
+    height: 1.47rem;
+    position: absolute;
+    left: 5.45rem;
+    top: 22.68rem;
+    opacity: 0;
+    animation-delay: 2.5s;
+    z-index: 2;
+}
+
+.rulePage {
     width: 100%;
     height: 100%;
     position: relative;
 }
-.rulePage img:nth-of-type(1){
+
+.rulePage img:nth-of-type(1) {
     width: 7.36rem;
     height: 4.47rem;
     position: absolute;
     left: 3.8rem;
-    top:1.91rem;
+    top: 1.91rem;
     opacity: 0;
     animation-delay: 0.5s;
 }
-.rulePage img:nth-of-type(2){
+
+.rulePage img:nth-of-type(2) {
     width: 1.74rem;
     height: 1.74rem;
     position: absolute;
     left: 12.72rem;
-    top:4.62rem;
+    top: 4.62rem;
     opacity: 0;
-    animation-delay: 1s;
+    animation-delay: 0.5s;
 }
-.rulePage div:nth-of-type(1){
+
+.rulePage div:nth-of-type(1) {
     width: 12.23rem;
     height: 17rem;
     background: url("../img/blakboard.png") no-repeat;
     background-size: cover;
     position: absolute;
     left: 1.45rem;
-    top:5.5rem;
+    top: 5.5rem;
     opacity: 0;
-    animation-delay: 1s;
+    animation-delay: 0.5s;
 }
-.rulePage div p{
+
+.rulePage div p {
     font-size: .5rem;
     color: white;
     font-family: "Microsoft YaHei UI";
     line-height: .7rem;
 }
-.monsterFall{
+
+.monsterFall {
     width: 100%;
     height: 100%;
     position: relative;
 }
-.monsterFall img:nth-of-type(1){
+
+.monsterFall img:nth-of-type(1) {
     width: 100%;
     height: 26.47rem;
     position: absolute;
     left: 0;
-    bottom:0;
+    bottom: 0;
     opacity: 0;
 }
-.monsterFall img:nth-of-type(2){
+
+.monsterFall img:nth-of-type(2) {
     width: 7.94rem;
     height: 7.93rem;
     position: absolute;
@@ -153,7 +147,8 @@ html,body{
     opacity: 0;
     animation-delay: 1s;
 }
-.monsterFall img:nth-of-type(3){
+
+.monsterFall img:nth-of-type(3) {
     width: 7.94rem;
     height: 7.93rem;
     position: absolute;
@@ -162,7 +157,8 @@ html,body{
     opacity: 0;
     animation-delay: 2s;
 }
-.monsterFall img:nth-of-type(4){
+
+.monsterFall img:nth-of-type(4) {
     width: 7.94rem;
     height: 7.93rem;
     position: absolute;
@@ -171,7 +167,8 @@ html,body{
     opacity: 0;
     animation-delay: 3s;
 }
-.monsterFall  img:nth-of-type(5){
+
+.monsterFall img:nth-of-type(5) {
     width: 2.93rem;
     height: 1.73rem;
     position: absolute;
@@ -180,7 +177,8 @@ html,body{
     opacity: 0;
     animation-delay: 3.5s;
 }
-.monsterFall .scoreContainer{
+
+.monsterFall .scoreContainer {
     width: 6.5rem;
     height: 2.5rem;
     position: absolute;
@@ -188,20 +186,23 @@ html,body{
     top: .5rem;
     opacity: 0;
 }
-.monsterFall .scoreContainer .score{
+
+.monsterFall .scoreContainer .score {
     width: 3rem;
     height: 2.5rem;
     position: absolute;
     right: 0;
     top: 0;
+    color: #ffb91c;
 }
 
-.littleMonster{
-    width: 2rem;
-    height: 2rem;
+.littleMonster {
+    width: 3rem;
+    height: 3rem;
     position: absolute;
 }
-.monsterFall .next,.again{
+
+.monsterFall .next, .again {
     width: 8rem;
     height: 3rem;
     background-color: white;
@@ -210,90 +211,231 @@ html,body{
     left: 3.36rem;
     top: 8.53rem;
     opacity: 0;
+    display: none;
 }
-.subjectPage{
-    width:100%;
+
+.startSubjectPage{
+    width: 100%;
     height: 100%;
     position: relative;
 }
-.subjectPage img:nth-of-type(1){
+.startSubjectPage img:nth-of-type(1){
+    width: 12.23rem;
+    height: 9.45rem;
+    position: absolute;
+    left: 1.47rem;
+    top: 5.5rem;
+    opacity: 0;
+    z-index: 1;
+    animation-delay: 1s;
+}
+.startSubjectPage img:nth-of-type(2){
+    width: 6.93rem;
+    height: 2.4rem;
+    position: absolute;
+    left: 4rem;
+    top: 10.55rem;
+    opacity: 0;
+    z-index: 2;
+    animation-delay: 1s;
+}
+.subjectCorrect{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.subjectCorrect img:nth-of-type(1){
+    width: 12.6rem;
+    height: 9.41rem;
+    position: absolute;
+    left: 1.33rem;
+    top: 6.9rem;
+    opacity: 0;
+    z-index: 1;
+    animation-delay: 1s;
+}
+.subjectCorrect img:nth-of-type(2){
+    width: 6.15rem;
+    height: 2.14rem;
+    position: absolute;
+    left: 4.41rem;
+    top: 13rem;
+    opacity: 0;
+    z-index: 2;
+    animation-delay: 1s;
+}
+.subjectPage {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.subjectPage .subjectContainer {
     width: 12.23rem;
     height: 10.53rem;
     position: absolute;
     left: 1.56rem;
-    top: 1.95rem;
+    top: .95rem;
     opacity: 0;
     animation-delay: 1s;
 }
-.subjectPage #optionA{
+
+.subjectPage .subjectContainer img {
+    width: 12.23rem;
+    height: 10.53rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    animation-delay: 1s;
+}
+
+.subjectPage .subjectContainer p {
+    width: 10rem;
+    height: 6.37rem;
+    margin: auto auto .3rem;
+    font-size: .48rem;
+    color: white;
+    font-family: "Microsoft YaHei UI";
+}
+
+.subjectPage .optionContainer p {
+    width: 8.99rem;
+    height: 3.11rem;
+    margin: 0 auto;
+    line-height: 3.11rem;
+    text-align: center;
+    font-size: .48rem;
+    color: white;
+    font-family: "Microsoft YaHei UI";
+}
+
+.subjectPage #optionA {
     width: 8.99rem;
     height: 3.11rem;
     position: absolute;
     left: 3.2rem;
-    top: 12.4rem;
+    top: 11.4rem;
     opacity: 0;
     animation-delay: 2s;
 }
-.subjectPage #optionA img{
+
+.subjectPage #optionA img {
     width: 8.99rem;
     height: 3.11rem;
     position: absolute;
-    left: 3.2rem;
-    top: 12.4rem;
+    left: 0;
+    top: 0;
     opacity: 0;
     animation-delay: 2s;
 }
-.subjectPage #optionB{
+
+.subjectPage #optionB {
     width: 8.99rem;
     height: 3.11rem;
     position: absolute;
     left: 3.2rem;
-    top: 15.4rem;
+    top: 14.4rem;
     opacity: 0;
     animation-delay: 2.5s;
 }
-.subjectPage #optionB img{
+
+.subjectPage #optionB img {
     width: 8.99rem;
     height: 3.11rem;
     position: absolute;
-    left: 3.2rem;
-    top: 15.4rem;
+    left: 0;
+    top: 0;
     opacity: 0;
     animation-delay: 2.5s;
 }
-.subjectPage #optionC{
+
+.subjectPage #optionC {
     width: 8.99rem;
     height: 3.11rem;
     position: absolute;
     left: 3.2rem;
-    top: 18.44rem;
+    top: 17.4rem;
     opacity: 0;
     animation-delay: 3s;
 }
-.subjectPage #optionC img{
+
+.subjectPage #optionC img {
     width: 8.99rem;
     height: 3.11rem;
     position: absolute;
-    left: 3.2rem;
-    top: 18.44rem;
+    left: 0;
+    top: 0;
     opacity: 0;
     animation-delay: 3s;
 }
-.subjectPage #optionD{
+
+.subjectPage #optionD {
     width: 8.99rem;
     height: 3.11rem;
     position: absolute;
     left: 3.2rem;
-    top: 21.5rem;
+    top: 20.4rem;
     opacity: 0;
     animation-delay: 3.5s;
 }
-.subjectPage #optionD img{
+
+.subjectPage #optionD img {
     width: 8.99rem;
     height: 3.11rem;
     position: absolute;
-    left: 3.2rem;
-    top: 21.5rem;
+    left: 0;
+    top: 0;
     opacity: 0;
     animation-delay: 3.5s;
+}
+
+.replayPage {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.replayPage img:nth-of-type(1) {
+    width: 14.07rem;
+    height: 17.13rem;
+    position: absolute;
+    left: .83rem;
+    top: 3.97rem;
+    opacity: 0;
+}
+
+.replayPage img:nth-of-type(2) {
+    width: 5.23rem;
+    height: 2.5rem;
+    position: absolute;
+    left: 1.74rem;
+    top: 19.03rem;
+    opacity: 0;
+    z-index:1;
+}
+
+.replayPage img:nth-of-type(3) {
+    width: 5.23rem;
+    height: 2.96rem;
+    position: absolute;
+    left: 1.74rem;
+    top: 18.57rem;
+    opacity: 0;
+    z-index:2;
+}
+
+.lotteryPage {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.lotteryPage img:nth-of-type(1) {
+    width: 14.44rem;
+    height: 13.98rem;
+    position: absolute;
+    left: .48rem;
+    top: 5.23rem;
+    opacity: 0;
 }

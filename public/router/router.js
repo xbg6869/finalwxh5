@@ -9,7 +9,8 @@ var  dbController =require('./dbController');
 exports.indexRender=function (req,res) {
     //首页跳转微信授权处理
     console.log(111)
-    res.redirect(access_tokenUrl);
+/*    res.redirect(access_tokenUrl);*/
+    res.render('index');
 }
 exports.authRender=function (req,res) {
     var access_code= req.query.code;
