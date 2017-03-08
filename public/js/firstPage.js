@@ -1,3 +1,4 @@
+var infoExist;
 $(function () {
     var firstPage = $('#firstPage');
     var firstImgArray = firstPage.find('img');
@@ -17,8 +18,14 @@ $(function () {
     });
     beginUp.click(function () {
         beginUp.hide();
-        setTimeout(function () {
-            location.hash = '#monsterFall';
-        });
+        if(infoExist){
+            setTimeout(function () {
+                location.hash = '#monsterFall';
+            },500);
+        }else {
+            setTimeout(function () {
+                location.hash = '#infoPage';
+            },500);
+        }
     });
 });

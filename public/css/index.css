@@ -177,6 +177,25 @@ body {
     opacity: 0;
     animation-delay: 3.5s;
 }
+.monsterFall img:nth-of-type(6) {
+    width: 5.06rem;
+    height: 1.31rem;
+    position: absolute;
+    left: .5rem;
+    top: .76rem;
+    opacity: 0;
+    animation-delay: 3.5s;
+}
+.monsterFall img:nth-of-type(7) {
+    width: 8.72rem;
+    height: 7.91rem;
+    position: absolute;
+    left: 3.63rem;
+    top: 4.36rem;
+    opacity: 0;
+    z-index: 1;
+    animation-delay: 1s;
+}
 
 .monsterFall .scoreContainer {
     width: 6.5rem;
@@ -192,26 +211,39 @@ body {
     height: 2.5rem;
     position: absolute;
     right: 0;
-    top: 0;
+    top: 0.3rem;
+    font-family: "Agency FB";
+    font-weight: bold;
+    font-size: 1.7rem;
     color: #ffb91c;
 }
 
-.littleMonster {
-    width: 3rem;
-    height: 3rem;
+.monsterFall .countDownContainer {
+    width: 6.5rem;
+    height: 2.5rem;
     position: absolute;
+    right: .5rem;
+    left: .5rem;
+    opacity: 0;
 }
 
-.monsterFall .next, .again {
-    width: 8rem;
-    height: 3rem;
-    background-color: white;
-    font-size: 2rem;
+.monsterFall .countDownContainer .countDown {
+    width: 3rem;
+    height: 2.5rem;
     position: absolute;
-    left: 3.36rem;
-    top: 8.53rem;
-    opacity: 0;
-    display: none;
+    right: .5rem;
+    top: .7rem;
+    font-family: "Agency FB";
+    font-weight: bold;
+    font-size: 1.7rem;
+    color: #ffb91c;
+    z-index: 2;
+}
+
+.littleMonster {
+    width: 3.08rem;
+    height: 3.36rem;
+    position: absolute;
 }
 
 .startSubjectPage{
@@ -269,27 +301,18 @@ body {
     height: 100%;
     position: relative;
 }
-
 .subjectPage .subjectContainer {
     width: 12.23rem;
     height: 10.53rem;
     position: absolute;
     left: 1.56rem;
     top: .95rem;
+    background: url("../img/subjectBoard.png") no-repeat;
+    background-size: cover;
     opacity: 0;
     animation-delay: 1s;
+    display: flex;
 }
-
-.subjectPage .subjectContainer img {
-    width: 12.23rem;
-    height: 10.53rem;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    animation-delay: 1s;
-}
-
 .subjectPage .subjectContainer p {
     width: 10rem;
     height: 6.37rem;
@@ -298,7 +321,6 @@ body {
     color: white;
     font-family: "Microsoft YaHei UI";
 }
-
 .subjectPage .optionContainer p {
     width: 8.99rem;
     height: 3.11rem;
@@ -309,43 +331,25 @@ body {
     color: white;
     font-family: "Microsoft YaHei UI";
 }
-
 .subjectPage #optionA {
     width: 8.99rem;
     height: 3.11rem;
     position: absolute;
     left: 3.2rem;
     top: 11.4rem;
+    background: url("../img/subjectBorder.png") no-repeat;
+    background-size: cover;
     opacity: 0;
     animation-delay: 2s;
 }
-
-.subjectPage #optionA img {
-    width: 8.99rem;
-    height: 3.11rem;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    animation-delay: 2s;
-}
-
 .subjectPage #optionB {
     width: 8.99rem;
     height: 3.11rem;
     position: absolute;
     left: 3.2rem;
     top: 14.4rem;
-    opacity: 0;
-    animation-delay: 2.5s;
-}
-
-.subjectPage #optionB img {
-    width: 8.99rem;
-    height: 3.11rem;
-    position: absolute;
-    left: 0;
-    top: 0;
+    background: url("../img/subjectBorder.png") no-repeat;
+    background-size: cover;
     opacity: 0;
     animation-delay: 2.5s;
 }
@@ -356,16 +360,8 @@ body {
     position: absolute;
     left: 3.2rem;
     top: 17.4rem;
-    opacity: 0;
-    animation-delay: 3s;
-}
-
-.subjectPage #optionC img {
-    width: 8.99rem;
-    height: 3.11rem;
-    position: absolute;
-    left: 0;
-    top: 0;
+    background: url("../img/subjectBorder.png") no-repeat;
+    background-size: cover;
     opacity: 0;
     animation-delay: 3s;
 }
@@ -376,16 +372,8 @@ body {
     position: absolute;
     left: 3.2rem;
     top: 20.4rem;
-    opacity: 0;
-    animation-delay: 3.5s;
-}
-
-.subjectPage #optionD img {
-    width: 8.99rem;
-    height: 3.11rem;
-    position: absolute;
-    left: 0;
-    top: 0;
+    background: url("../img/subjectBorder.png") no-repeat;
+    background-size: cover;
     opacity: 0;
     animation-delay: 3.5s;
 }
@@ -439,3 +427,314 @@ body {
     top: 5.23rem;
     opacity: 0;
 }
+
+.rankPage{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.rankPage img:nth-of-type(1){
+    width: 13.5rem;
+    height: 24.26rem;
+    position: absolute;
+    left: .9rem;
+    top: .7rem;
+    opacity: 0;
+    z-index: 1;
+    animation-delay: .5s;
+}
+.rankPage img:nth-of-type(2){
+    width: 3.09rem;
+    height: 2.18rem;
+    position: absolute;
+    left: 6.05rem;
+    top: 19.86rem;
+    z-index: 2;
+    opacity: 0;
+    animation-delay: .5s;
+}
+.rankPage .rankContainer{
+    width: 8.6rem;
+    height: 14rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    position: absolute;
+    left:3.4rem;
+    top:5.7rem;
+    opacity:0;
+    animation-delay: 1s;
+}
+.rankPage .rankContainer .personalContainer{
+    width: 4.3rem;
+    height: 1.4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.rankPage .rankContainer .personalContainer .rank{
+    height: 1rem;
+    width: .7rem;
+    font-size: .45rem;
+    color: white;
+    line-height: 1rem;
+    text-align: center;
+}
+.rankPage .rankContainer .personalContainer .head{
+    height: 1rem;
+    width: 1rem;
+    background: url("../img/headBg.png") no-repeat;
+    background-size: cover;
+}
+.rankPage .rankContainer .personalContainer .nameAndScore{
+    height: 1rem;
+    width: 2.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.rankPage .rankContainer .personalContainer .nameAndScore .name{
+    height: .5rem;
+    width: 2.6rem;
+    font-size: .3rem;
+    color: white;
+    line-height: .5rem;
+    font-family: 幼圆;
+}
+.rankPage .rankContainer .personalContainer .nameAndScore .personalScore{
+    height: .5rem;
+    width: 2.6rem;
+    font-family: "Berlin Sans FB";
+    font-weight: bold;
+    font-size: .7rem;
+    color: yellow;
+    line-height: .5rem;
+}
+.infoPage{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.infoPage .inputContainer{
+    width: 12.6rem;
+    height: 12.97rem;
+    position: absolute;
+    background: url("../img/infoBg.png") no-repeat;
+    background-size: cover;
+    left: 1.32rem;
+    top: 6.9rem;
+    z-index: 1;
+    opacity: 0;
+    animation-delay: .5s;
+}
+.infoPage input:nth-of-type(1){
+    width: 2.8rem;
+    height: .88rem;
+    position: absolute;
+    left: 5.47rem;
+    top:3.98rem;
+    border: .01rem solid white;
+    border-radius: .08rem;
+}
+.infoPage input:nth-of-type(2){
+    width: 8.27rem;
+    height: .89rem;
+    position: absolute;
+    left:3rem;
+    top:5.22rem;
+    border: .01rem solid white;
+    border-radius: .08rem;
+}
+.infoPage input:nth-of-type(3){
+    width: 4.74rem;
+    height: .89rem;
+    position: absolute;
+    left:4.68rem;
+    top:6.49rem;
+    border: .01rem solid white;
+    border-radius: .08rem;
+}
+.infoPage input:nth-of-type(4){
+    width: 5.59rem;
+    height: .89rem;
+    position: absolute;
+    left:5rem;
+    top:7.77rem;
+    border: .01rem solid white;
+    border-radius: .08rem;
+}
+.infoPage .inputContainer .submit{
+    width: 6.5rem;
+    height: 2.88rem;
+    background: url("../img/completed.png") no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: 2.95rem;
+    top: 10.09rem;
+    border: none;
+}
+.lotteryPage,.ly-plate{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.lotteryPage,.ly-plate img:nth-of-type(1){
+    width: 14.44rem;
+    height: 13.98rem;
+    position: absolute;
+    left: .69rem;
+    top: 3.23rem;
+    z-index: 1;
+}
+.lotteryPage img:nth-of-type(2){
+    width: 11.38rem;
+    height: 11.38rem;
+    position: absolute;
+    left: 2.23rem;
+    top: 4.64rem;
+    z-index: 2;
+    opacity: 0;
+    animation-delay: .5s;
+}
+.lotteryPage img:nth-of-type(3){
+    width: 10.53rem;
+    height: 10.53rem;
+    position: absolute;
+    left: 2.655rem;
+    top: 5.065rem;
+    z-index: 3;
+    opacity: 0;
+    animation-delay: .5s;
+}
+.rotate-bg{
+    width: 11.38rem;
+    height: 11.38rem;
+    position: absolute;
+    left: 2.23rem;
+    top: 4.64rem;
+    z-index: 2;
+    animation-delay: .5s;
+    background: url("../img/lotteryBg.png") no-repeat;
+    background-size: cover;
+}
+.lottery-star{
+    width: 10.53rem;
+    height: 10.53rem;
+    position: absolute;
+    left: 2.655rem;
+    top: 5.065rem;
+    z-index: 3;
+    animation-delay: .5s;
+    background:url("../img/lotteryBtn.png") no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    outline:none;
+}
+.winPage{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.winPage img:nth-of-type(1){
+    width: 15.27rem;
+    height: 26.81rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    opacity: 0;
+    animation-delay: .5s;
+}
+.winPage img:nth-of-type(2){
+    width: 5.69rem;
+    height: 3.22rem;
+    position: absolute;
+    left: 4.73rem;
+    top: 20.4rem;
+    z-index: 2;
+    opacity: 0;
+    animation-delay: .5s;
+}
+
+.failPage {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.failPage img:nth-of-type(1) {
+    width: 13.18rem;
+    height: 17.7rem;
+    position: absolute;
+    left: .71rem;
+    top: 2.65rem;
+    opacity: 0;
+}
+
+.failPage img:nth-of-type(2) {
+    width: 5.23rem;
+    height: 2.96rem;
+    position: absolute;
+    left: 1.82rem;
+    top: 17.4rem;
+    opacity: 0;
+    z-index:1;
+}
+
+.failPage img:nth-of-type(3) {
+    width: 5.23rem;
+    height: 2.96rem;
+    position: absolute;
+    left: 7.86rem;
+    top: 17.4rem;
+    opacity: 0;
+    z-index:2;
+}
+
+.music {
+    width: 0.8rem;
+    height: 0.8rem;
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+    background: url(../img/openMusic.png) no-repeat;
+    background-size: 100% 100%;
+    z-index: 111;
+    opacity: 0;
+}
+
+.musicCur {
+    opacity: 1;
+    -webkit-animation: move 1s infinite linear both;
+    animation: move 1s infinite linear both;
+}
+
+@-webkit-keyframes move {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes move {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+
+

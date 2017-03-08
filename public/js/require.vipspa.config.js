@@ -7,9 +7,17 @@ $(function(){
                 templateUrl: 'views/firstPage.html',
                 controller: 'js/firstPage.js'
             },
+            'infoPage': {
+                templateUrl: 'views/infoPage.html',
+                controller: 'js/infoPage.js'
+            },
             'monsterFall': {
                 templateUrl: 'views/monsterFall.html',
                 controller: 'js/monsterFall.js'
+            },
+            'rankPage': {
+                templateUrl: 'views/rankPage.html',
+                controller: 'js/rankPage.js'
             },
             'rulePage': {
                 templateUrl: 'views/rulePage.html',
@@ -34,6 +42,14 @@ $(function(){
             'lotteryPage': {
                 templateUrl: 'views/lotteryPage.html',
                 controller: 'js/lotteryPage.js'
+            },
+            'winPage': {
+                templateUrl: 'views/winPage.html',
+                controller: 'js/winPage.js'
+            },
+            'failPage': {
+                templateUrl: 'views/failPage.html',
+                controller: 'js/failPage.js'
             },
             'defaults': 'firstPage' //默认路由
         }

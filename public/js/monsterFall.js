@@ -4,11 +4,12 @@ $(function () {
     /*打小怪得积分逻辑开始*/
     var isPlayed = false;
     var bronMonster;//生成怪物定时器
-    var s=10;  //游戏时间
+    var s=11;  //游戏时间
     var sum=0;   //积分
     var scoreContainer = monsterFall.find('.scoreContainer');
+    var countDownContainer = monsterFall.find('.countDownContainer')
 
-    for (var i = 0; i < monsterFallImgArray.length; i++) {
+    for (var i = 0; i < monsterFallImgArray.length-1; i++) {
         monsterFallImgArray[i].className += ' bounceIn  animated';
         if(i>0&&i<4){
             monsterFallImgArray[i].addEventListener('animationend',function () {
@@ -19,27 +20,26 @@ $(function () {
     //怪物开始降落
     function starMonsterFall() {
         scoreContainer.show().css('opacity','1');
+        countDownContainer.show().css('opacity','1');
         bronMonster=setInterval(bronOneMonster,250);
     }
     //游戏倒计时函数
     var selfTimer;
     function gameTimeCut() {
-        --s;
+        s--;
+        $('.countDown').html(s);
         selfTimer = setTimeout(gameTimeCut, 1000);
-        if (s < 0) {
+        if (s < 1) {
             clearTimeout(selfTimer);
             stopMonsterFall();
         }
     }
     function stopMonsterFall() {
         clearInterval(bronMonster);
+        $('#timeout').addClass(' bounceIn  animated')
         setTimeout(function () {
-            if(sum>10000){
-                location.hash = '#startSubjectPage'
-            }else {
-                location.hash = '#replayPage'
-            }
-        },2000)
+            location.hash = '#rankPage';
+        },3000)
     }
     //生成一个怪物
     function bronOneMonster() {

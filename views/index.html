@@ -11,9 +11,36 @@
     <script type="text/javascript" src="lib/responsive.js"></script>
 </head>
 <body>
+<!--音乐播放-->
+<div class="music">
+    <audio src="audio/bgMusic.mp3" loop preload="none" id="guangzhou"></audio>
+</div>
 <div id="ui-view"></div>
 </body>
 <script type="text/javascript" src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="lib/jqueryrotate.js"></script>
 <script type="text/javascript" src="lib/vipspa-0.1.0.min.js"></script>
 <script type="text/javascript" src="js/require.vipspa.config.js"></script>
+<script>
+    var music = document.querySelector(".music");
+    var guangzhou = document.querySelector("#guangzhou");
+    window.setTimeout(function () {
+        guangzhou.play();
+        guangzhou.addEventListener("canplay", function () {
+            music.className = "music musicCur";
+        })
+    }, 1000)
+    music.addEventListener("click", function () {
+        //paused属性判断音频文件是播放的还是停止 beyond.paused=true说明音频文件目前是停止播放
+        //让音频文件播放play(),让音频文件停止是pause();
+        if (guangzhou.paused) {//停止
+            guangzhou.play();
+            music.className = "music musicCur";
+        } else {
+            guangzhou.pause();
+            music.className = "music";
+            music.style.opacity = 1;
+        }
+    }, false)
+</script>
 </html>
