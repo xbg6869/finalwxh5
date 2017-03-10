@@ -24,21 +24,16 @@ var schedule = require('node-schedule');
 
 
 function scheduleRecurrenceRule(){
-    var rule = new schedule.RecurrenceRule();
-    // rule.dayOfWeek = 2;
-    // rule.month = 3;
-    // rule.dayOfMonth = 1;
-    // rule.hour = 0;
-    // rule.minute = 42;
-    // rule.second = 0;
-    schedule.scheduleJob('0 52 1 * * *', function(){
+
+    schedule.scheduleJob('0 02 4 * * *', function(){
         console.log('12点过了，用户游戏次数全部刷新');
         routes.refreshPlayChance();
     });
 }
+// routes.refreshPlayChance();
 // scheduleRecurrenceRule();
 // console.log('12点过了，用户游戏次数全部刷新');
-// routes.refreshPlayChance();
+
 
 
 
@@ -71,4 +66,4 @@ app.get('/lottery',routes.calculateProb);
 
 
 
-app.listen(8080);
+app.listen(8088);

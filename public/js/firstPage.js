@@ -1,3 +1,6 @@
+document.body.addEventListener('touchmove' , function(e){
+    e.preventDefault();
+})
 $(function () {
     var firstPage = $('#firstPage');
     var firstImgArray = firstPage.find('img');

@@ -1,3 +1,4 @@
+
 $(function () {
     var infoPage = $('#infoPage');
     var infoPageChildren = infoPage.find('img');

@@ -198,14 +198,8 @@ exports.clearAllUser=function () {
     }
     
 exports.refreshPlayChance=function () {
-    UserCtrl.update({},{$set:{"playChance":10}},false,true,function (err,doc) {
-        if(err){
-            console.log(err);
-        }else{
-            console.log('所有玩家的次数已经更新完毕');
-        }
-    })
-}
+    UserCtrl.update({wxName:'有梦就别怕痛'},{ $set : { playChance : 10} },false,true);
+    }
 
 exports.chanceCheck=function (openid,cb) {
         var  obj={

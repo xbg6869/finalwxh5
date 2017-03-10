@@ -12,7 +12,7 @@ var wxUserSchema = new  mongoose.Schema({
     email:String,
     phoneNumber:Number,
     address:String,
-    playChance:{type:Number,default:2},
+    playChance:{type:Number,default:50},
     headimgurl:String,
     realname:String
 

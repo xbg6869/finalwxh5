@@ -36,7 +36,7 @@ $(function () {
                 if (result != null) {
                     for (var i = 0; i < result.length; i++) {
                         str += ' <div class="personalContainer">'
-                            + '<div class="rank">' + i + '</div>'
+                            + '<div class="rank">' + (i+1) + '</div>'
                             + '<img class="head" src="' + result[i].headimgurl + '" ></img>'
                             + '<div class="nameAndScore">'
                             + '<div class="name">' + result[i].wxName + '</div>'
