@@ -1,94 +1,130 @@
+
 $(function () {
     var monsterFall = $('#monsterFall');
     var monsterFallImgArray = monsterFall.find('img');
     /*打小怪得积分逻辑开始*/
     var isPlayed = false;
     var bronMonster;//生成怪物定时器
-    var s=11;  //游戏时间
-    var sum=0;   //积分
+    var s = 10;  //游戏时间
+    var sum = 0;   //积分
     var scoreContainer = monsterFall.find('.scoreContainer');
     var countDownContainer = monsterFall.find('.countDownContainer')
 
-    for (var i = 0; i < monsterFallImgArray.length-1; i++) {
+    for (var i = 0; i < monsterFallImgArray.length - 1; i++) {
         monsterFallImgArray[i].className += ' bounceIn  animated';
-        if(i>0&&i<4){
-            monsterFallImgArray[i].addEventListener('animationend',function () {
+        if (i > 0 && i < 4) {
+            monsterFallImgArray[i].addEventListener('animationend', function () {
                 $(this).fadeOut();
             });
         }
     }
     //怪物开始降落
     function starMonsterFall() {
-        scoreContainer.show().css('opacity','1');
-        countDownContainer.show().css('opacity','1');
-        bronMonster=setInterval(bronOneMonster,250);
+        scoreContainer.show().css('opacity', '1');
+        countDownContainer.show().css('opacity', '1');
+        bronMonster = setInterval(bronOneMonster, 333);
     }
+
     //游戏倒计时函数
     var selfTimer;
+
     function gameTimeCut() {
-        s--;
         $('.countDown').html(s);
         selfTimer = setTimeout(gameTimeCut, 1000);
-        if (s < 1) {
-            clearTimeout(selfTimer);
+        if (s==1){
             stopMonsterFall();
         }
+        if (s == 0) {
+            clearTimeout(selfTimer);
+            var data = {
+                score: sum
+            }
+            saveInfo(data);
+        }
+        s--;
     }
+
     function stopMonsterFall() {
         clearInterval(bronMonster);
         $('#timeout').addClass(' bounceIn  animated')
         setTimeout(function () {
             location.hash = '#rankPage';
-        },3000)
+        }, 3000)
     }
+
     //生成一个怪物
     function bronOneMonster() {
         var deviceWidth = document.body.clientWidth;
-        var left = parseInt(Math.random()*(deviceWidth-30));
-        var top = parseInt(Math.random()*50+100);
-        var speed = parseInt(Math.random()*100+150);
-        monsterFall.append('<img src="./img/monster.png" alt="" class="littleMonster">');
+        var left = parseInt(Math.random() * (deviceWidth - 80));
+        var top = parseInt(Math.random() * 50 + 100);
+        var duration = parseInt(Math.random() * 2000 + 1000);
+        monsterFall.append('<div class="littleMonster"></div>');
         monsterFall.children('.littleMonster:last').css({'left': left, 'top': top});
-        monsterFall.children('.littleMonster:last').animate({'left': left, 'top': $(window).height() + speed}, 3000);
+        monsterFall.children('.littleMonster:last').animate({
+            'left': left,
+            'top': $(window).height()
+        }, {
+            duration: duration, queue: false, complete: function () {
+                $(this).remove();
+            }
+        })
     }
+
     //成功击败怪物得积分并在页面中显示函数
+
+    var monsterSound = document.getElementById('monsterSound');
     $(document).on('touchstart', '.littleMonster', function (e) {
         var that = this;
-        $(that).attr('src','./img/monsterClicked1.gif');
+        $(that).css("background-position", "0 -3.6rem");
+        // monsterSound.play();
         var e = e || window.event;
         if (e.target.className.toUpperCase() === 'LITTLEMONSTER') {
-            var num = parseInt(Math.random() * 1000);
-            sum+=num;
+            var num = parseInt(Math.random() * 30+20);
+            sum += num;
             $('.score').html(sum);
         }
         setTimeout(function () {
             $(that).remove();
-        },500);
+        }, 500);
     });
+
     //倒计时结束，游戏开始
-    var lastCut = document.getElementById('lastCut');
-    lastCut.addEventListener('animationend', function () {
+    var lastCut = $('#lastCut');
+    lastCut.on('animationend', function () {
         gameTimeCut();
         starMonsterFall();
     });
-
-/*    function replay() {
-        sum = 0;
-        s = 20;
-        $('.score').html(sum);
-        $(this).fadeOut();
-        for (var i = 0; i < monsterFallImgArray.length; i++) {
-            $(monsterFallImgArray[i]).show();
-            if(i>0&&i<4){
-                monsterFallImgArray[i].addEventListener('animationend',function () {
-                    $(this).fadeOut();
-                });
-            }
-        }
-    }*/
+    /*    function replay() {
+     sum = 0;
+     s = 20;
+     $('.score').html(sum);
+     $(this).fadeOut();
+     for (var i = 0; i < monsterFallImgArray.length; i++) {
+     $(monsterFallImgArray[i]).show();
+     if(i>0&&i<4){
+     monsterFallImgArray[i].addEventListener('animationend',function () {
+     $(this).fadeOut();
+     });
+     }
+     }
+     }*/
     //积分发送至后台并存储
-    function saveInfo() {
-        console.log('存储积分数据成功！')
+    function saveInfo(data) {
+        $.ajax({
+            type: 'post',
+            url: 'saveScore',
+            data: data,
+            dataType:'json',
+            success: function (result) {
+                console.log(result);
+                if(result){
+                    sessionStorage.setItem('inRank',result.inRank);
+                    sessionStorage.setItem('noChance',result.nochance);
+                }
+            }
+        });
     }
+
+
     /*打小怪得积分逻辑结束*/
 });

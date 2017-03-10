@@ -9,6 +9,9 @@ a{ text-decoration:none;}
 *{
 	font-family: "微软雅黑";
 	cursor: pointer;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select:none;
 }
 *{
 	-webkit-tap-highlight-color: rgba(0,0,0,0);

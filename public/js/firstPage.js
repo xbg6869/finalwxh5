@@ -1,4 +1,3 @@
-var infoExist;
 $(function () {
     var firstPage = $('#firstPage');
     var firstImgArray = firstPage.find('img');
@@ -11,21 +10,27 @@ $(function () {
     }
     gameRuleUp.click(function () {
         gameRuleUp.hide();
-        var that =this;
         setTimeout(function () {
             location.hash = '#rulePage';
-        },500);
+        },200);
     });
     beginUp.click(function () {
         beginUp.hide();
-        if(infoExist){
-            setTimeout(function () {
-                location.hash = '#monsterFall';
-            },500);
-        }else {
-            setTimeout(function () {
-                location.hash = '#infoPage';
-            },500);
-        }
+        chanceCheck();
     });
+    function chanceCheck() {
+        $.ajax({
+            type: 'get',
+            url: 'chanceCheck',
+            dataType:'json',
+            success:function (result) {
+                if(result.hasChance){
+                    location.hash = '#monsterFall';
+                }else {
+                    alert('今天十次游戏机会已用完，请明天再玩！');
+                    location.hash = '#rulePage';
+                }
+            }
+        })
+    }
 });

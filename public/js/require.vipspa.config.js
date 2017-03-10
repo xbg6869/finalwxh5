@@ -11,6 +11,10 @@ $(function(){
                 templateUrl: 'views/infoPage.html',
                 controller: 'js/infoPage.js'
             },
+            'infoPage1': {
+                templateUrl: 'views/infoPage1.html',
+                controller: 'js/infoPage1.js'
+            },
             'monsterFall': {
                 templateUrl: 'views/monsterFall.html',
                 controller: 'js/monsterFall.js'
@@ -51,7 +55,7 @@ $(function(){
                 templateUrl: 'views/failPage.html',
                 controller: 'js/failPage.js'
             },
-            'defaults': 'firstPage' //默认路由
+            'defaults': 'rulePage' //默认路由
         }
     });
 

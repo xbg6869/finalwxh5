@@ -14,7 +14,7 @@ $(function() {
                 if(text == 0){
                     location.hash = '#failPage';
                 }else {
-                    location.hash = '#winPage';
+                    checkInfoExists();
                 }
             }
         });
@@ -24,30 +24,27 @@ $(function() {
         bind: {
             click: function() {
                 //这个随机可以通过后端返回的数据替代
-                /*$.ajax({
-                    url:'/turn',
+                $.ajax({
+                    url:'/lottery',
                     method:'get',
                     dataType:'json',
                     success:function (num) {
                         if(num){
+                            console.log(num);
                             showResult(num);
                         }
                     }
-                });*/
-                showResult(1);
+                });
                 function showResult(data) {
                     switch (data) {
-                        case 1:
-                            rotateFunc(1, 5, 1);
+                        case 2://亚马孙电子礼品卡
+                            rotateFunc(4, 140, 4);
                             break;
-                        case 2:
-                            rotateFunc(2, 115, 2);
-                            break;
-                        case 3:
-                            rotateFunc(3, 225, 3);
+                        case 1://3M口罩
+                            rotateFunc(6, 30, 6);
                             break;
                         case 0:
-                            var angle = [67, 112, 202, 292, 337];
+                            var angle = [67,80,190,202];
                             angle = angle[Math.floor(Math.random() * angle.length)]
                             rotateFunc(0, angle, 0);
                             break;
@@ -56,4 +53,24 @@ $(function() {
             }
         }
     });
+
+
+    function checkInfoExists() {
+        $.ajax({
+            type: 'get',
+            url: 'checkInfoExists',
+            dataType: 'text',
+            success: function (result) {
+                if(result=='false') {
+                    setTimeout(function () {
+                        location.hash = '#infoPage1';
+                    }, 200);
+                } else {
+                    setTimeout(function () {
+                        location.hash = '#winPage';
+                    }, 200);
+                }
+            }
+        });
+    }
 })

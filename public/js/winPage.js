@@ -1,20 +1,15 @@
 $(function () {
     var winPage = $('#winPage');
-    var winPageChildren = winPage.find('img');
+    var firstDoctor = $('#firstDoctor');
+    var thirdDoctor = $('#thirdDoctor');
     var share = $('#share');
     var shareBtn = $('#shareBtn');
-    for (var i = 0; i < winPageChildren.length; i++) {
-        winPageChildren[i].className += ' fadeIn  animated';
-    }
+    share.addClass(' fadeIn  animated');
+    firstDoctor.addClass(' fadeIn  animated');
+    shareBtn.addClass(' fadeIn  animated');
     shareBtn.click(function () {
-        $(winPage).css({
-            'background': 'url("../img/shareBg.png") no-repeat',
-            'background-size': '15.27rem 26.81rem'
-        })
-        $(share).hide();
         $(this).hide();
-        /*        setTimeout(function () {
-         location.hash = '#monsterFall';
-         },500);*/
+        firstDoctor.hide()
+        thirdDoctor.addClass(' fadeIn  animated');
     });
 });
