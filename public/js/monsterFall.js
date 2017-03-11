@@ -7,12 +7,12 @@ $(function () {
     /*打小怪得积分逻辑开始*/
     var isPlayed = false;
     var bronMonster;//生成怪物定时器
-    var s = 10;  //游戏时间
+    var s = 60;  //游戏时间
     var sum = 0;   //积分
     var scoreContainer = monsterFall.find('.scoreContainer');
     var countDownContainer = monsterFall.find('.countDownContainer')
 
-    for (var i = 0; i < monsterFallImgArray.length - 1; i++) {
+    for (var i = 0; i < monsterFallImgArray.length - 2; i++) {
         monsterFallImgArray[i].className += ' bounceIn  animated';
         if (i > 0 && i < 4) {
             monsterFallImgArray[i].addEventListener('animationend', function () {
@@ -59,12 +59,12 @@ $(function () {
         var deviceWidth = document.body.clientWidth;
         var left = parseInt(Math.random() * (deviceWidth - 80));
         var top = parseInt(Math.random() * 50 + 100);
-        var duration = parseInt(Math.random() * 2000 + 1000);
+        var duration = parseInt(Math.random() * 2000 + 500);
         monsterFall.append('<div class="littleMonster"></div>');
         monsterFall.children('.littleMonster:last').css({'left': left, 'top': top});
         monsterFall.children('.littleMonster:last').animate({
             'left': left,
-            'top': $(window).height()
+            'top': $(window).height()-100
         }, {
             duration: duration, queue: false, complete: function () {
                 $(this).remove();

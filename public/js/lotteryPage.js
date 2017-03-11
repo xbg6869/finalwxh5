@@ -22,20 +22,22 @@ $(function() {
 
     lotteryBtn.rotate({
         bind: {
-            click: function() {
+            touchstart: function() {
                 //这个随机可以通过后端返回的数据替代
                 $.ajax({
                     url:'/lottery',
                     method:'get',
-                    dataType:'json',
-                    success:function (num) {
-                        if(num){
-                            console.log(num);
+                    dataType:'text',
+                    success:function (result) {
+                        var num = Number(result);
                             showResult(num);
-                        }
+
                     }
                 });
                 function showResult(data) {
+                    if(data == 'undefined'){
+                        data=0;
+                    }
                     switch (data) {
                         case 2://亚马孙电子礼品卡
                             rotateFunc(4, 140, 4);

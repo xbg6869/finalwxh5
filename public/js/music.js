@@ -39,7 +39,6 @@ music.addEventListener("click", function () {
     } else {
         guangzhou.pause();
         music.className = "music";
-        music.style.opacity = 1;
     }
 }, false)
 function audioAutoPlay(id){

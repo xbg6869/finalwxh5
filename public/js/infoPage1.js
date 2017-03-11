@@ -16,6 +16,9 @@ $(function () {
             tel1=$('#telInfo1').val(),
             address1=$('#addressInfo1').val(),
             email1=$('#emailInfo1').val();
+        if(realName1=="" || tel1=="" ||address1 == "" || email1==''){
+            return false;
+        }
         //开始发送数据给后台
         var  data={
             realname : realName1,

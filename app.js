@@ -66,4 +66,4 @@ app.get('/lottery',routes.calculateProb);
 
 
 
-app.listen(8088);
+app.listen(8080);

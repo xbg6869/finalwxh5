@@ -4,9 +4,9 @@ $(function () {
     var infoPageChildren = infoPage.find('img');
     var completed = $('#completed');
     for (var i = 0; i < infoPageChildren.length; i++) {
-        infoPageChildren[i].className += ' bounceIn  animated';
+        infoPageChildren[i].className += ' fadeIn  animated';
     }
-    $('.inputContainer').addClass(' bounceIn  animated');
+    $('.inputContainer').addClass(' fadeIn  animated');
     completed.click(function () {
         $(this).hide();
         var that = this;
@@ -17,6 +17,9 @@ $(function () {
             tel=$('#telInfo').val(),
             address=$('#addressInfo').val(),
             email=$('#emailInfo').val();
+        if(realName=="" || tel=="" ||address == "" || email==''){
+            return false;
+        }
         //开始发送数据给后台
         var  data={
             realname : realName,

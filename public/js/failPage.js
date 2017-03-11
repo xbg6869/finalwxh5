@@ -8,8 +8,8 @@ $(function () {
     }
     replay.click(function () {
         $(this).hide();
-        console.log(noChance)
-        if(noChance){
+        chanceCheck();
+        /*if(noChance){
             alert('今天十次游戏机会已经没有了，请明天再玩！')
             setTimeout(function () {
                 location.hash = '#rulePage';
@@ -18,12 +18,27 @@ $(function () {
             setTimeout(function () {
                 location.hash = '#monsterFall';
             },200);
-        }
+        }*/
     });
     share.click(function () {
         $(this).hide();
-        /*setTimeout(function () {
-            location.hash = '#monsterFall';
-        },500);*/
+        setTimeout(function () {
+            location.hash = '#rulePage';
+        },200);
     });
+    function chanceCheck() {
+        $.ajax({
+            type: 'get',
+            url: 'chanceCheck',
+            dataType:'json',
+            success:function (result) {
+                if(result.hasChance){
+                    location.hash = '#monsterFall';
+                }else {
+                    alert('今天十次游戏机会已用完，请明天再玩！');
+                    location.hash = '#rulePage';
+                }
+            }
+        })
+    }
 });

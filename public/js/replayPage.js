@@ -7,8 +7,21 @@ $(function () {
     }
     replay.click(function () {
         $(this).hide();
-        setTimeout(function () {
-            location.hash = '#monsterFall';
-        },500);
+        chanceCheck();
     });
+    function chanceCheck() {
+        $.ajax({
+            type: 'get',
+            url: 'chanceCheck',
+            dataType:'json',
+            success:function (result) {
+                if(result.hasChance){
+                    location.hash = '#monsterFall';
+                }else {
+                    alert('今天十次游戏机会已用完，请明天再玩！');
+                    location.hash = '#rulePage';
+                }
+            }
+        })
+    }
 });
