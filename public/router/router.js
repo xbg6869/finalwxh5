@@ -1,7 +1,7 @@
 var  request = require('request');
 var  appid ='wxe8229870ed0f898a';
 var  appSecret = '07a44d0c65dde4dc146cee766febe0d3';
-var  access_tokenUrl ='https://open.weixin.qq.com/connect/oauth2/authorize?appid='+appid+'&redirect_uri=http://xbg6869.tunnel.2bdata.com/callback&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
+var  access_tokenUrl ='https://open.weixin.qq.com/connect/oauth2/authorize?appid='+appid+'&redirect_uri=http://www.yuanz.cc/callback&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
 var  openId='';
 var  realname='';
 var  dbController =require('./dbController');
