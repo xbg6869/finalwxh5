@@ -10,7 +10,7 @@ $(function () {
     var s = 60;  //游戏时间
     var sum = 0;   //积分
     var scoreContainer = monsterFall.find('.scoreContainer');
-    var countDownContainer = monsterFall.find('.countDownContainer')
+    var countDownContainer = monsterFall.find('.countDownContainer');
 
     for (var i = 0; i < monsterFallImgArray.length - 2; i++) {
         monsterFallImgArray[i].className += ' bounceIn  animated';
@@ -92,7 +92,9 @@ $(function () {
 
     //倒计时结束，游戏开始
     var lastCut = $('#lastCut');
+    var monsterBg = $('#monsterBg');
     lastCut.on('animationend', function () {
+        monsterBg.fadeOut();
         gameTimeCut();
         starMonsterFall();
     });

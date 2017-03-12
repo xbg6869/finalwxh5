@@ -7,6 +7,8 @@ var  bodyParser =  require('body-parser');
 var  schedule = require('node-schedule');
 
 
+
+
 app.use(bodyParser.json());  //把post请求的主体内容解析成 json格式对象
 app.use(bodyParser.urlencoded({extended:false}));   //处理查询字符串
 app.use(express.static(path.resolve('public')));

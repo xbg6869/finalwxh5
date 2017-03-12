@@ -1,5 +1,5 @@
 $(function(){
-	vipspa.start({
+    vipspa.start({
         view: '#ui-view',
         errorTemplateId: '#error', // 可选
         router: {
@@ -26,6 +26,10 @@ $(function(){
             'rulePage': {
                 templateUrl: 'views/rulePage.html',
                 controller: 'js/rulePage.js'
+            },
+            'awardPage': {
+                templateUrl: 'views/awardPage.html',
+                controller: 'js/awardPage.js'
             },
             'startSubjectPage': {
                 templateUrl: 'views/startSubjectPage.html',

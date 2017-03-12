@@ -51,18 +51,37 @@ body {
     width: 3.39rem;
     height: 1.1rem;
     position: absolute;
-    left: 5.85rem;
+    left: 3.43rem;
     top: 22.78rem;
     opacity: 0;
     animation-delay: .5s;
     z-index: 1;
 }
-
 .firstPage img:nth-of-type(4) {
     width: 3.39rem;
     height: 1.18rem;
     position: absolute;
-    left: 5.85rem;
+    left: 3.37rem;
+    top: 22.69rem;
+    opacity: 0;
+    animation-delay: .5s;
+    z-index: 2;
+}
+.firstPage img:nth-of-type(5) {
+    width: 3.39rem;
+    height: 1.18rem;
+    position: absolute;
+    left: 8.43rem;
+    top: 22.69rem;
+    opacity: 0;
+    animation-delay: .5s;
+    z-index: 2;
+}
+.firstPage img:nth-of-type(6) {
+    width: 3.39rem;
+    height: 1.18rem;
+    position: absolute;
+    left: 8.43rem;
     top: 22.69rem;
     opacity: 0;
     animation-delay: .5s;
@@ -169,6 +188,16 @@ body {
     animation-delay: 3.5s;
 }
 .monsterFall img:nth-of-type(7) {
+    width: 10.05rem;
+    height: 19.85rem;
+    position: absolute;
+    left: 2.6rem;
+    top: 2.15rem;
+    opacity: 0;
+    z-index: 1;
+    animation-delay: 0s;
+}
+.monsterFall img:nth-of-type(8) {
     width: 8.72rem;
     height: 7.91rem;
     position: absolute;
@@ -409,52 +438,52 @@ body {
     position: relative;
 }
 .rankPage #scoreBoardBg{
-    width: 13.5rem;
-    height: 24.26rem;
+    width: 11.8rem;
+    height: 20.85rem;
     position: absolute;
-    left: .9rem;
-    top: .7rem;
+    left: 2rem;
+    top: .72rem;
     opacity: 0;
     z-index: 1;
     animation-delay: .5s;
 }
 .rankPage #villageSay{
-    width: 10rem;
-    height: 5.23rem;
+    width: 8.68rem;
+    height: 4.54rem;
     position: absolute;
-    left: 2.67rem;
-    top: 20.5rem;
+    left: 3.33rem;
+    top: 17.93rem;
     opacity: 0;
     z-index: 1;
     animation-delay: .5s;
 }
 .rankPage #continueUp{
-    width: 4.56rem;
-    height: 2.21rem;
+    width: 3.94rem;
+    height: 1.92rem;
     position: absolute;
-    left: 5.36rem;
-    top: 23.52rem;
+    left: 5.7rem;
+    top: 20.54rem;
     z-index: 2;
     opacity: 0;
     animation-delay: .5s;
 }
 .rankPage .rankContainer{
-    width: 8.6rem;
-    height: 14rem;
+    width: 7.53rem;
+    height: 12rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-content: flex-start;
     position: absolute;
-    left:3.4rem;
-    top:5.7rem;
+    left:4.2rem;
+    top:5.07rem;
     opacity:0;
     animation-delay: 1s;
 }
 .rankPage .rankContainer .personalContainer{
-    width: 4.3rem;
-    height: 1.4rem;
+    width: 3.76rem;
+    height: 1.19rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -462,7 +491,7 @@ body {
 }
 .rankPage .rankContainer .personalContainer .rank{
     height: 1rem;
-    width: .7rem;
+    width: .56rem;
     font-size: .45rem;
     color: white;
     line-height: 1rem;
@@ -474,7 +503,7 @@ body {
 }
 .rankPage .rankContainer .personalContainer .nameAndScore{
     height: 1rem;
-    width: 2.6rem;
+    width: 2.2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -482,18 +511,18 @@ body {
 }
 .rankPage .rankContainer .personalContainer .nameAndScore .name{
     height: .5rem;
-    width: 2.6rem;
-    font-size: .3rem;
+    width: 2.2rem;
+    font-size: .2rem;
     color: white;
     line-height: .5rem;
     font-family: 幼圆;
 }
 .rankPage .rankContainer .personalContainer .nameAndScore .personalScore{
     height: .5rem;
-    width: 2.6rem;
+    width: 2.2rem;
     font-family: "Berlin Sans FB";
     font-weight: bold;
-    font-size: .7rem;
+    font-size: .5rem;
     color: yellow;
     line-height: .5rem;
 }

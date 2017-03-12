@@ -1,6 +1,5 @@
-document.body.addEventListener('touchmove' , function(e){
-    e.preventDefault();
-})
+var inRank = false;
+var noChance = false;
 $(function () {
     var firstPage = $('#firstPage');
     var firstImgArray = firstPage.find('img');
@@ -8,6 +7,7 @@ $(function () {
     var gameRuleDown = $('#gameRuleDown');
     var beginUp = $('#beginUp');
     var beginDown = $('#beginDown');
+    var awardUp = $('#awardUp');
     for (var i = 0; i < firstImgArray.length; i++) {
         firstImgArray[i].className += ' bounceIn  animated';
     }
@@ -15,6 +15,12 @@ $(function () {
         gameRuleUp.hide();
         setTimeout(function () {
             location.hash = '#rulePage';
+        },200);
+    });
+    awardUp.click(function () {
+        awardUp.hide();
+        setTimeout(function () {
+            location.hash = '#awardPage';
         },200);
     });
     beginUp.click(function () {
@@ -28,6 +34,7 @@ $(function () {
             dataType:'json',
             success:function (result) {
                 if(result.hasChance){
+                    noChance = false;
                     location.hash = '#monsterFall';
                 }else {
                     alert('今天十次游戏机会已用完，请明天再玩！');
