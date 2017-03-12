@@ -59,7 +59,7 @@ $(function(){
                 templateUrl: 'views/failPage.html',
                 controller: 'js/failPage.js'
             },
-            'defaults': 'rulePage' //默认路由
+            'defaults': 'views/firstPage.html' //默认路由
         }
     });
 
