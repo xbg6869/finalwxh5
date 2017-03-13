@@ -1,5 +1,7 @@
 var inRank = false;
 var noChance = false;
+var p=document.getElementById('openid').innerHTML;
+ localStorage.setItem('openid',p);
 $(function () {
     var firstPage = $('#firstPage');
     var firstImgArray = firstPage.find('img');
@@ -30,7 +32,7 @@ $(function () {
     function chanceCheck() {
         $.ajax({
             type: 'get',
-            url: 'chanceCheck',
+            url: 'chanceCheck?openid='+localStorage.getItem('openid')+'',
             dataType:'json',
             success:function (result) {
                 if(result.hasChance){

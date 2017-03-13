@@ -60,7 +60,7 @@ $(function() {
     function checkInfoExists() {
         $.ajax({
             type: 'get',
-            url: 'checkInfoExists',
+            url: 'checkInfoExists?openid='+localStorage.getItem('openid')+'',
             dataType: 'text',
             success: function (result) {
                 if(result=='false') {

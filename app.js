@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended:false}));   //处理查询字符串
 app.use(express.static(path.resolve('public')));
 app.use(express.static(path.resolve('build')));
 app.engine('html',ejs.__express);
-app.set('view engine','html');
+app.set('view engine','ejs');
 
 var  routes = require('./public/router/router');
 
@@ -68,4 +68,4 @@ app.get('/lottery',routes.calculateProb);
 
 
 
-app.listen(8088);
+app.listen(8080);

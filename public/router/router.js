@@ -1,7 +1,7 @@
 var  request = require('request');
 var  appid ='wxe8229870ed0f898a';
 var  appSecret = '07a44d0c65dde4dc146cee766febe0d3';
-var  access_tokenUrl ='https://open.weixin.qq.com/connect/oauth2/authorize?appid='+appid+'&redirect_uri=http://www.yuanz.cc/callback&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
+var  access_tokenUrl ='https://open.weixin.qq.com/connect/oauth2/authorize?appid='+appid+'&redirect_uri=http://xbg6869.tunnel.2bdata.com/callback&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
 var  openId='';
 var  realname='';
 var  dbController =require('./dbController');
@@ -42,7 +42,7 @@ exports.authRender=function (req,res) {
                 }
                 var userInfo= JSON.parse(info);
                 var userName=userInfo.nickname;
-                openId= userInfo.openid;
+                var openId= userInfo.openid;
                 var headimgurl=userInfo.headimgurl;
 
                  // if(dbController.exists()){
@@ -56,7 +56,9 @@ exports.authRender=function (req,res) {
                 dbController.exists(openId,function () {
                     dbController.saveUser(userName,openId,headimgurl);
                 })
-                res.render('index');
+                res.render('index',{
+                    name:openId
+                });
             })
 
         })
@@ -65,6 +67,7 @@ exports.authRender=function (req,res) {
 }
 
 exports.chanceCheck=function (req,res) {
+    var openId=req.query.openid.slice(1);
     dbController.chanceCheck(openId,function (obj) {
         res.send(obj);
     });
@@ -72,20 +75,22 @@ exports.chanceCheck=function (req,res) {
 
 
 exports.checkInfoExists=function (req,res) {
+    var openId=req.query.openid.slice(1);
     dbController.infoExist(openId,function (result) {
         res.send(result);
     })
 }
 
 exports.saveInfo=function (req,res) {
+    var openId=req.query.openid.slice(1);
     var  info=req.body;
-    realname=info.realname;
     dbController.updateUser(openId,info)
     res.send('get data success!');
 }
 
 
 exports.saveScore=function (req,res) {
+    var openId=req.query.openid.slice(1);
     var  score=req.body.score;
     var  obj={
          nochance:false,
@@ -120,6 +125,7 @@ exports.returnRank=function (req,res) {
 }
 
 exports.refreshPlayChance=function () {
+    var openId=req.query.openid.slice(1);
     dbController.refreshPlayChance();
 }
 /**

@@ -116,7 +116,7 @@ $(function () {
     function saveInfo(data) {
         $.ajax({
             type: 'post',
-            url: 'saveScore',
+            url: 'saveScore?openid='+localStorage.getItem('openid')+'',
             data: data,
             dataType:'json',
             success: function (result) {

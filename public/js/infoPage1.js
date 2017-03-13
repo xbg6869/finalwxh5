@@ -36,7 +36,7 @@ $(function () {
     function sendInfoToBackend(data) {
         $.ajax({
             type:'post',
-            url:'userInfo',
+            url:'userInfo?openid='+localStorage.getItem('openid')+'',
             data:data,
             success:function (result) {
                 console.log(result)

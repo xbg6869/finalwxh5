@@ -12,7 +12,7 @@ $(function () {
     function chanceCheck() {
         $.ajax({
             type: 'get',
-            url: 'chanceCheck',
+            url: 'chanceCheck?openid='+localStorage.getItem('openid')+'',
             dataType:'json',
             success:function (result) {
                 if(result.hasChance){
