@@ -22,7 +22,7 @@ $(function () {
         //开始发送数据给后台
         var  data={
             realname : realName1,
-            tel:tel1,
+            phoneNumber:tel1,
             address:address1,
             email:email1
         };

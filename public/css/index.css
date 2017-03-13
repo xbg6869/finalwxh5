@@ -129,7 +129,20 @@ body {
     height: 100%;
     position: relative;
 }
+.monsterFall *{
+    backface-visibility:hidden;              /* 隐藏被旋转的 div 元素的背面，开启GPU硬件加速 */
+    -webkit-backface-visibility:hidden;      /* Chrome 和 Safari */
+    -moz-backface-visibility:hidden;         /* Firefox */
+    -ms-backface-visibility:hidden;          /* Internet Explorer */
+    -webkit-transform: translate3d(0, 0, 0); /* 3D旋转，开启GPU硬件加速 */
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+                             /* 3D元素距视图的距离，解决开启GPU硬件加速部分Android出现闪烁的bug */
+    -ms-perspective: 1000;
 
+}
 .monsterFall img:nth-of-type(1) {
     width: 15.27rem;
     height: 26.47rem;

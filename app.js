@@ -13,6 +13,7 @@ app.use(bodyParser.json());  //把post请求的主体内容解析成 json格式�
 app.use(bodyParser.urlencoded({extended:false}));   //处理查询字符串
 app.use(express.static(path.resolve('public')));
 app.use(express.static(path.resolve('build')));
+app.use(express.static(path.resolve('node_modules')));
 app.engine('html',ejs.__express);
 app.set('view engine','ejs');
 
@@ -27,14 +28,13 @@ var schedule = require('node-schedule');
 
 function scheduleRecurrenceRule(){
 
-    schedule.scheduleJob('0 02 4 * * *', function(){
+    schedule.scheduleJob('0 01 0 * * *', function(){
         console.log('12点过了，用户游戏次数全部刷新');
         routes.refreshPlayChance();
     });
 }
-// routes.refreshPlayChance();
-// scheduleRecurrenceRule();
-// console.log('12点过了，用户游戏次数全部刷新');
+scheduleRecurrenceRule();
+
 
 
 
@@ -64,8 +64,10 @@ app.get('/returnRank',routes.returnRank);
 //返回转盘中奖信息
 app.get('/lottery',routes.calculateProb);
 
+app.get('/data',routes.renderBackEndData)
 
 
 
 
-app.listen(8080);
+
+app.listen(8088);

@@ -3,6 +3,7 @@ $(function () {
     var failPageChildren = failPage.find('*');
     var replay = $('#replayUp');
     var share = $('#shareUp');
+    var failLottery = $('#failLottery');
     for (var i = 0; i < failPageChildren.length; i++) {
         failPageChildren[i].className += ' bounceIn  animated';
     }
@@ -22,9 +23,7 @@ $(function () {
     });
     share.click(function () {
         $(this).hide();
-        setTimeout(function () {
-            location.hash = '#rulePage';
-        },200);
+        failLottery.attr('src','img/failLottery1.png')
     });
     function chanceCheck() {
         $.ajax({

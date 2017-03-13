@@ -198,7 +198,13 @@ exports.clearAllUser=function () {
     }
     
 exports.refreshPlayChance=function () {
-    UserCtrl.update({wxName:'有梦就别怕痛'},{ $set : { playChance : 10} },false,true);
+    UserCtrl.update({},{'playChance' : 10 },{multi:true},function (err,doc) {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log('Update success!');
+        }
+    });
     }
 
 exports.chanceCheck=function (openid,cb) {
@@ -220,6 +226,19 @@ exports.chanceCheck=function (openid,cb) {
             }
         }
     })
+};
+
+exports.renderBackEndData=function (cb) {
+    UserCtrl.find({},{"wxName":1,"headimgurl":1,"highestScore":1,"realname":1,"email":1,"phoneNumber":1,"address":1,_id:0},{limit:20},function (err,doc) {
+        if(err){
+            console.log(err);
+        }else{
+            console.log('准备将所有玩家数据返回给数据页')
+            cb(doc);
+        }
+    }).sort({"highestScore":-1});
 }
+
+
     
 

@@ -59,10 +59,10 @@ $(function () {
         var deviceWidth = document.body.clientWidth;
         var left = parseInt(Math.random() * (deviceWidth - 80));
         var top = parseInt(Math.random() * 50 + 100);
-        var duration = parseInt(Math.random() * 2000 + 500);
+        var duration = parseInt(2000);
         monsterFall.append('<div class="littleMonster"></div>');
-        monsterFall.children('.littleMonster:last').css({'left': left, 'top': top});
-        monsterFall.children('.littleMonster:last').animate({
+        // monsterFall.children('.littleMonster:last').css({'left': left, 'top': top});
+        monsterFall.children('.littleMonster:last').css({'left': left, 'top': top}).animate({
             'left': left,
             'top': $(window).height()-100
         }, {
