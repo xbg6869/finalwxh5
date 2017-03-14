@@ -25,7 +25,7 @@ $(function() {
             touchstart: function() {
                 //这个随机可以通过后端返回的数据替代
                 $.ajax({
-                    url:'/lottery',
+                    url:'/lottery?openid='+localStorage.getItem('openid')+'',
                     method:'get',
                     dataType:'text',
                     success:function (result) {

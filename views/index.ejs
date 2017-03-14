@@ -14,8 +14,20 @@
     <audio src="audio/bgMusic.mp3" loop preload="auto" id="guangzhou"></audio>
 </div>
 <div id="ui-view"></div>
-</body>
+<script src="bundle.js"></script>
 <script>
+    //网站统计部分
+    var _mtac = {};
+    (function() {
+        var mta = document.createElement("script");
+        mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.2";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "500405102");
+
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+    })();
+
     var images = new Array()
     function preload() {
         for (var i = 0; i < preload.arguments.length; i++) {
@@ -45,5 +57,5 @@
         "img/timeout.png"
     )
 </script>
-<script src="bundle.js"></script>
+</body>
 </html>

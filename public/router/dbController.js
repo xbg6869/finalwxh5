@@ -1,5 +1,5 @@
 var  UserCtrl=require('../../db/index').wxUser;
-
+var  rewardCtrl=require('../../db/index').reward;
 
 
 exports.saveUser=function (userName,openId,headimgurl) {
@@ -237,8 +237,63 @@ exports.renderBackEndData=function (cb) {
             cb(doc);
         }
     }).sort({"highestScore":-1});
+};
+
+exports.checkAlreadyWin=function (openid,cb) {
+    UserCtrl.find({openid:openid},function (err,doc) {
+        if(err){
+            console.log(err)
+        }else{
+            cb(doc[0].isWin,doc[0].lotteryChance);
+        }
+    })
 }
 
+
+
+// reward part
+exports.rewardList=function (cb) {
+    rewardCtrl.find({},function (err,doc) {
+        if(err){
+            console.log(err)
+        }else{
+            cb(doc[0].MMM,doc[0].card);
+        }
+    })
+};
+
+exports.winMMM=function (openid) {
+    UserCtrl.update({openid:openid},{$set:{'isWin':true}},function (err,doc) {
+        if(err){
+            console.log(err)
+        }
+    });
+
+    rewardCtrl.update({},{"$inc":{'MMM':-1}},function (err,doc) {
+          if(err){
+              console.log(err);
+          }else{
+              console.log('一个3M口罩被抽中，库存减1')
+          }
+    })
+}
+
+
+exports.winCard=function (openid) {
+    UserCtrl.update({openid:openid},{$set:{'isWin':true}},function (err,doc) {
+        if(err){
+            console.log(err)
+        }
+    });
+
+    rewardCtrl.update({},{"$inc":{'card':-1}},function (err,doc) {
+        if(err){
+            console.log(err);
+        }else{
+            console.log('一个亚马逊电子卡被抽中，库存减1')
+        }
+    })
+}
 
     
 
