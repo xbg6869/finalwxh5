@@ -2,6 +2,10 @@ var inRank = false;
 var noChance = false;
 var p=document.getElementById('openid').innerHTML;
  localStorage.setItem('openid',p);
+
+
+
+//img preload
 $(function () {
     var firstPage = $('#firstPage');
     var firstImgArray = firstPage.find('img');

@@ -15,5 +15,35 @@
 </div>
 <div id="ui-view"></div>
 </body>
+<script>
+    var images = new Array()
+    function preload() {
+        for (var i = 0; i < preload.arguments.length; i++) {
+            images[i] = new Image()
+            images[i].src = preload.arguments[i]
+        }
+    }
+    preload(
+        "img/awardDescription.png",
+        "img/awardDown.png",
+        "img/beginDown.png",
+        "img/beginUp.png",
+        "img/bg.png",
+        "img/bg1.png",
+        "img/countDown.png",
+        "img/gameDescriptionDown.png",
+        "img/gameDescriptionUp.png",
+        "img/gameRule.png",
+        "img/infoBg.png",
+        "img/infoBg1.png",
+        "img/monsterBg.png",
+        "img/num1.png",
+        "img/num2.png",
+        "img/num3.png",
+        "img/openMusic.png",
+        "img/score.png",
+        "img/timeout.png"
+    )
+</script>
 <script src="bundle.js"></script>
 </html>
