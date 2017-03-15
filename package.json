@@ -17,6 +17,7 @@
     "mongoose": "^4.8.5",
     "node-schedule": "^1.2.0",
     "request": "^2.79.0",
+    "sha1": "^1.1.1",
     "urllib": "^2.21.0",
     "wechat-oauth": "^1.2.1"
   },

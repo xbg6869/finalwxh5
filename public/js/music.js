@@ -26,6 +26,7 @@ var music = document.querySelector(".music");
 var guangzhou = document.querySelector("#guangzhou");
 window.setTimeout(function () {
     guangzhou.play();
+    localStorage.setItem('musicOpen',true);
     guangzhou.addEventListener("canplay", function () {
         music.className = "music musicCur";
     })
@@ -35,9 +36,11 @@ music.addEventListener("click", function () {
     //让音频文件播放play(),让音频文件停止是pause();
     if (guangzhou.paused) {//停止
         guangzhou.play();
+        localStorage.setItem('musicOpen',true);
         music.className = "music musicCur";
     } else {
         guangzhou.pause();
+        localStorage.setItem('musicOpen',false);
         music.className = "music";
     }
 }, false)
@@ -45,6 +48,7 @@ function audioAutoPlay(id){
     var audio = document.getElementById(id),
         play = function(){
             audio.play();
+            localStorage.setItem('musicOpen',true);
             document.removeEventListener("touchstart",play, false);
         };
     audio.play();

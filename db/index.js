@@ -1,6 +1,6 @@
 var  mongoose= require('mongoose');
 
-mongoose.connect("mongodb://www.yuanz.cc/wxH5");
+mongoose.connect("mongodb://localhost/wxH5");
 
 
 var wxUserSchema = new  mongoose.Schema({

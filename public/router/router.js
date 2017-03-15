@@ -1,10 +1,11 @@
 var  request = require('request');
 var  appid ='wxe8229870ed0f898a';
 var  appSecret = '07a44d0c65dde4dc146cee766febe0d3';
-var  access_tokenUrl ='https://open.weixin.qq.com/connect/oauth2/authorize?appid='+appid+'&redirect_uri=http://www.yuanz.cc/callback&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
+var  access_tokenUrl ='https://open.weixin.qq.com/connect/oauth2/authorize?appid='+appid+'&redirect_uri=http://xbg6869.tunnel.2bdata.com/callback&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
 var  openId='';
 var  realname='';
 var  dbController =require('./dbController');
+var sha1=require('sha1');
 
 exports.indexRender=function (req,res) {
     //首页跳转微信授权处理
@@ -133,12 +134,20 @@ exports.refreshPlayChance=function () {
  */
 
 exports.renderBackEndData=function (req,res) {
-    dbController.renderBackEndData(function (data) {
-        console.log(data);
-        res.render('showData',{
-            data:data
+    var  username = req.body.username;
+    var  password = req.body.psw;
+
+    if(username=='yuanzimao'&& password=='yuanzimao123'){
+        dbController.renderBackEndData(function (data) {
+            // res.cookie('data',{cookieobj},{path:'/admin/aaa'})
+            // res.redirect('/admin/aaa');
+
+            res.render('login',{data:data,bok:false});
         });
-    });
+    }else{
+        res.send({status:false});
+    }
+
 }
 exports.calculateProb=function (req,res) {
     var openid= req.query.openid.slice(1);
@@ -183,5 +192,9 @@ exports.calculateProb=function (req,res) {
   },30)
 }
 
+
+   exports.renderLogin=function (req,res) {
+       res.render('login',{bok:true})
+   }
 
 

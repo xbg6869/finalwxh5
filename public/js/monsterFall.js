@@ -124,7 +124,9 @@ $(function () {
     $(document).on('touchstart', '.littleMonster', function (e) {
         var that = this;
         $(that).css("background-position", "0 -3.6rem");
-        monsterSound.play();
+        if(localStorage.getItem('musicOpen')=='true'){
+            monsterSound.play();
+        }
         var e = e || window.event;
         if (e.target.className.toUpperCase() === 'LITTLEMONSTER') {
             var num = parseInt(Math.random() * 30 + 20);

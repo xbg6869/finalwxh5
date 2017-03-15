@@ -9,6 +9,7 @@ var  schedule = require('node-schedule');
 
 
 
+
 app.use(bodyParser.json());  //把post请求的主体内容解析成 json格式对象
 app.use(bodyParser.urlencoded({extended:false}));   //处理查询字符串
 app.use(express.static(path.resolve('public')));
@@ -38,6 +39,9 @@ scheduleRecurrenceRule();
 
 
 
+// routes.getJsApi(function (signature) {
+//     console.log(signature);
+// });
 
 
 // 处理微信授权和返回首页
@@ -64,10 +68,12 @@ app.get('/returnRank',routes.returnRank);
 //返回转盘中奖信息
 app.get('/lottery',routes.calculateProb);
 
-app.get('/data',routes.renderBackEndData)
+
+app.get('/backEndLogin',routes.renderLogin)
+app.post('/data',routes.renderBackEndData)
 
 
 
 
 
-app.listen(8088);
+app.listen(8080);
