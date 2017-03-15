@@ -267,7 +267,7 @@ body {
     width: 3.08rem;
     height: 3.36rem;
     position: absolute;
-    top: 0;
+    top: -6rem;
     left: 0;
     /*background: red;*/
     /*background: url(../images/test_package.png) no-repeat;
@@ -336,6 +336,9 @@ body {
 .subjectPage .subjectContainer {
     width: 12.23rem;
     height: 10.53rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
     position: absolute;
     left: 1.56rem;
     top: .95rem;
@@ -343,12 +346,12 @@ body {
     background-size: cover;
     opacity: 0;
     animation-delay: 1s;
-    display: flex;
 }
 .subjectPage .subjectContainer p {
     width: 10rem;
-    height: 6.37rem;
+    height: 5rem;
     margin: auto auto .3rem;
+    text-indent: .6rem;
     font-size: .48rem;
     color: white;
     font-family: "Microsoft YaHei UI";

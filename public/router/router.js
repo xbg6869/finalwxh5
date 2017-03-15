@@ -1,7 +1,7 @@
 var  request = require('request');
 var  appid ='wxe8229870ed0f898a';
 var  appSecret = '07a44d0c65dde4dc146cee766febe0d3';
-var  access_tokenUrl ='https://open.weixin.qq.com/connect/oauth2/authorize?appid='+appid+'&redirect_uri=http:http://xbg6869.tunnel.2bdata.com/callback&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
+var  access_tokenUrl ='https://open.weixin.qq.com/connect/oauth2/authorize?appid='+appid+'&redirect_uri=http://www.yuanz.cc/callback&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
 var  openId='';
 var  realname='';
 var  dbController =require('./dbController');
@@ -148,6 +148,8 @@ exports.calculateProb=function (req,res) {
     var MMM=0;
     //首先检查当前用户是否已经中奖和是否还有转盘机会
     dbController.checkAlreadyWin(openid,function (Win,lotChance) {
+        console.log(Win);
+        console.log(lotChance);
         isWin=Win;
         lotteryChance=lotChance;
     });
@@ -155,27 +157,30 @@ exports.calculateProb=function (req,res) {
        MMM=MMMnumber;
        card=cardNumber;
    })
-
-    if(isWin!==true &&lotteryChance >=1 && MMM>=1 &&card>=0){
-        var  num = Math.round(Math.random()*100);
-        console.log(num);
-        if(num>0 && num<10){
-            console.log('口罩');
-            //数据库删掉一个对应的奖品
-           dbController.winMMM(openid);
-            res.send('1');
-        }else if( num>10 && num<20){
-            console.log('电子卡');
-            //数据库删掉一个对应的奖品
-            dbController.winCard(openid);
-            res.send('2');
-        }else{
-            res.send('0');
-            console.log('没中奖')
-        }
-    }else{
-        res.send('0');
-    }
+  setTimeout(function () {
+      if(isWin!==true &&lotteryChance >=1 && MMM>=1 &&card>=0){
+          var  num = Math.round(Math.random()*100);
+          console.log(num);
+          if(num>0 && num<10){
+              console.log('口罩');
+              //数据库删掉一个对应的奖品
+              dbController.winMMM(openid);
+              res.send('1');
+          }else if( num>10 && num<20){
+              console.log('电子卡');
+              //数据库删掉一个对应的奖品
+              dbController.winCard(openid);
+              res.send('2');
+          }else{
+              dbController.oneChanceOff(openid);
+              res.send('0');
+              console.log('没中奖')
+          }
+      }else{
+          dbController.oneChanceOff(openid);
+          res.send('0');
+      }
+  },30)
 }
 
 

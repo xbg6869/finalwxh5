@@ -244,7 +244,9 @@ exports.checkAlreadyWin=function (openid,cb) {
         if(err){
             console.log(err)
         }else{
-            cb(doc[0].isWin,doc[0].lotteryChance);
+            var lotteryChance=doc[0].lotteryChance;
+            var isWin=doc[0].isWin;
+            cb(isWin,lotteryChance);
         }
     })
 }
@@ -257,6 +259,7 @@ exports.rewardList=function (cb) {
         if(err){
             console.log(err)
         }else{
+            console.log(doc)
             cb(doc[0].MMM,doc[0].card);
         }
     })
@@ -291,6 +294,14 @@ exports.winCard=function (openid) {
             console.log(err);
         }else{
             console.log('一个亚马逊电子卡被抽中，库存减1')
+        }
+    })
+}
+
+exports.oneChanceOff=function (openid) {
+    UserCtrl.update({openid:openid},{'$inc':{lotteryChance:-1}},function (err,doc) {
+        if(err){
+            console.log(err);
         }
     })
 }
