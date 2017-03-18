@@ -11,12 +11,12 @@ var wxUserSchema = new  mongoose.Schema({
     email:{type:String,default:'用户未填写'},
     phoneNumber:{type:Number,default:0},
     address:{type:String,default:'用户未填写'},
-    playChance:{type:Number,default:50},
+    playChance:{type:Number,default:10},
     headimgurl:{type:String,default:'http://wx.qlogo.cn/mmopen/oYwP0cFmRU0LNYn7kegxreUiakQHPof3sLFh9rnzzBvAwCR60YMfRcZ8NaxicwZKSMVUaPVdTT8BLfmYjPNXDUug/0'},
     realname:{type:String,default:'用户未填写'},
     isWin:{type:Boolean,default:false},
-    lotteryChance:{type:Number,default:10}
-
+    lotteryChance:{type:Number,default:10},
+    reward:{type:String,default:'null'}
 
 },{collection:'wxUser'});
 

@@ -5,6 +5,9 @@ var app = express();
 var  fs= require('fs');
 var  bodyParser =  require('body-parser');
 var  schedule = require('node-schedule');
+var session = require('express-session');
+var signature = require('wx_jsapi_sign');
+var config = require('./config')();
 
 
 
@@ -15,6 +18,11 @@ app.use(bodyParser.urlencoded({extended:false}));   //处理查询字符串
 app.use(express.static(path.resolve('public')));
 app.use(express.static(path.resolve('build')));
 app.use(express.static(path.resolve('node_modules')));
+app.use(session({
+    resave:true,
+    saveUninitialized:true,
+    secret:'zfpx'
+}));
 app.engine('html',ejs.__express);
 app.set('view engine','ejs');
 
@@ -69,10 +77,24 @@ app.get('/returnRank',routes.returnRank);
 app.get('/lottery',routes.calculateProb);
 
 
-app.get('/backEndLogin',routes.renderLogin)
-app.post('/data',routes.renderBackEndData)
+app.get('/backEndLogin',routes.renderLogin);
+app.post('/data',routes.renderBackEndData);
+app.get('/showData',routes.renderData)
 
-
+//微信jsapi
+app.post('/getsignature', function(req, res){
+    var url = req.body.url;
+    console.log(url);
+    signature.getSignature(config)(url, function(error, result) {
+        if (error) {
+            res.json({
+                'error': error
+            });
+        } else {
+            res.json(result);
+        }
+    });
+});
 
 
 

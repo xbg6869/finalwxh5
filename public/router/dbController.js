@@ -266,7 +266,7 @@ exports.rewardList=function (cb) {
 };
 
 exports.winMMM=function (openid) {
-    UserCtrl.update({openid:openid},{$set:{'isWin':true}},function (err,doc) {
+    UserCtrl.update({openid:openid},{$set:{'isWin':true,'reward':'3M'}},function (err,doc) {
         if(err){
             console.log(err)
         }
@@ -283,7 +283,7 @@ exports.winMMM=function (openid) {
 
 
 exports.winCard=function (openid) {
-    UserCtrl.update({openid:openid},{$set:{'isWin':true}},function (err,doc) {
+    UserCtrl.update({openid:openid},{$set:{'isWin':true,'reward':'card'}},function (err,doc) {
         if(err){
             console.log(err)
         }
