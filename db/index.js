@@ -16,7 +16,7 @@ var wxUserSchema = new  mongoose.Schema({
     realname:{type:String,default:'用户未填写'},
     isWin:{type:Boolean,default:false},
     lotteryChance:{type:Number,default:10},
-    reward:{type:String,default:'null'}
+    reward:{type:String,default:'未中奖'}
 
 },{collection:'wxUser'});
 

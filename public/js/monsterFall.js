@@ -12,9 +12,9 @@ $(function () {
     var monsterArray = $('.littleMonster');
 
 
-    for (var i = 0; i < monsterFallImgArray.length - 2; i++) {
+    for (var i = 0; i < monsterFallImgArray.length - 1; i++) {
         monsterFallImgArray[i].className += ' bounceIn  animated';
-        if (i > 0 && i < 4) {
+        if ( i < 3) {
             monsterFallImgArray[i].addEventListener('animationend', function () {
                 $(this).fadeOut();
             });
@@ -68,7 +68,7 @@ $(function () {
         var left = parseInt(Math.random() * (deviceWidth - 80));
         TweenLite.to($(ele), speed, {
             css: {
-                transform: 'translate3d(0, 30rem, 0)'
+                transform: 'translate3d(0, 28rem, 0)'
             },
             ease:'linear',
             onComplete: function () {

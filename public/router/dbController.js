@@ -19,7 +19,7 @@ exports.infoExist=function (openid,cb) {
         if(err){
             console.log(err)
         }else{
-           if(doc[0].realname !==undefined){
+           if(doc[0].realname !=='用户未填写'){
                console.log('该用户信息已经存在，返回前端true并直接开始游戏');
                cb(true);
            }else{
@@ -198,7 +198,7 @@ exports.clearAllUser=function () {
     }
     
 exports.refreshPlayChance=function () {
-    UserCtrl.update({},{'playChance' : 10 },{multi:true},function (err,doc) {
+    UserCtrl.update({},{'playChance' : 10,'lotteryChance':10 },{multi:true},function (err,doc) {
         if(err) {
             console.log(err);
         } else {
@@ -229,7 +229,7 @@ exports.chanceCheck=function (openid,cb) {
 };
 
 exports.renderBackEndData=function (cb) {
-    UserCtrl.find({},{"wxName":1,"headimgurl":1,"highestScore":1,"realname":1,"email":1,"phoneNumber":1,"address":1,_id:0},{multi:true},function (err,doc) {
+    UserCtrl.find({},{"wxName":1,"headimgurl":1,"highestScore":1,"realname":1,"email":1,"phoneNumber":1,"reward":1,"address":1,_id:0},{multi:true},function (err,doc) {
         if(err){
             console.log(err);
         }else{
@@ -266,7 +266,7 @@ exports.rewardList=function (cb) {
 };
 
 exports.winMMM=function (openid) {
-    UserCtrl.update({openid:openid},{$set:{'isWin':true,'reward':'3M'}},function (err,doc) {
+    UserCtrl.update({openid:openid},{$set:{'isWin':true,'reward':'3M口罩一份'}},function (err,doc) {
         if(err){
             console.log(err)
         }
@@ -283,7 +283,7 @@ exports.winMMM=function (openid) {
 
 
 exports.winCard=function (openid) {
-    UserCtrl.update({openid:openid},{$set:{'isWin':true,'reward':'card'}},function (err,doc) {
+    UserCtrl.update({openid:openid},{$set:{'isWin':true,'reward':'亚马逊电子卡一份'}},function (err,doc) {
         if(err){
             console.log(err)
         }

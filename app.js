@@ -38,7 +38,7 @@ var schedule = require('node-schedule');
 function scheduleRecurrenceRule(){
 
     schedule.scheduleJob('0 01 0 * * *', function(){
-        console.log('12点过了，用户游戏次数全部刷新');
+        console.log('12点过了，用户游戏次数和转盘次数全部刷新');
         routes.refreshPlayChance();
     });
 }

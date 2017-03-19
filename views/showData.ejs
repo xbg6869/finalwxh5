@@ -18,26 +18,29 @@
         <table class="table table-striped table-bordered">
             <thead>
             <tr>
+                <th>头像</th>
+                <th>微信昵称</th>
                 <th>收货人</th>
                 <th>收货地址</th>
                 <th>电话</th>
                 <th>邮箱</th>
-                <th>微信昵称</th>
-                <th>头像</th>
+                <th>转盘中奖</th>
                 <th>游戏分数</th>
                 <th>游戏排名</th>
+
             </tr>
             </thead>
 
             <tbody id="tBody">
             <%for(var i=0; i< data.length; i++){%>
             <tr>
+                <td><img  style="width: 50px ; height: 50px" src=<%=data[i].headimgurl%> alt=""></td>
+                <td><%=data[i].wxName%></td>
                 <td><%=data[i].realname%></td>
                 <td><%=data[i].address%></td>
                 <td><%=data[i].phoneNumber%></td>
                 <td><%=data[i].email%></td>
-                <td><%=data[i].wxName%></td>
-                <td><img  style="width: 50px ; height: 50px" src=<%=data[i].headimgurl%> alt=""></td>
+                <td><%=data[i].reward%></td>
                 <td><%=data[i].highestScore%></td>
                 <td><%=(i+1)%></td>
             </tr>
