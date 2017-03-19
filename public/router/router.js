@@ -69,7 +69,6 @@ exports.authRender=function (req,res) {
 
 exports.chanceCheck=function (req,res) {
     var openId=req.query.openid.slice(1);
-    setDefaultOpenId();
     dbController.chanceCheck(openId,function (obj) {
         res.send(obj);
     });
@@ -78,7 +77,6 @@ exports.chanceCheck=function (req,res) {
 
 exports.checkInfoExists=function (req,res) {
     var openId=req.query.openid.slice(1);
-    setDefaultOpenId();
     dbController.infoExist(openId,function (result) {
         res.send(result);
     })
@@ -86,7 +84,6 @@ exports.checkInfoExists=function (req,res) {
 
 exports.saveInfo=function (req,res) {
     var openId=req.query.openid.slice(1);
-    setDefaultOpenId();
     var  info=req.body;
     dbController.updateUser(openId,info)
     res.send('get data success!');
@@ -95,7 +92,6 @@ exports.saveInfo=function (req,res) {
 
 exports.saveScore=function (req,res) {
     var openId=req.query.openid.slice(1);
-    setDefaultOpenId();
     var  score=req.body.score;
     var  obj={
          nochance:false,
@@ -159,7 +155,6 @@ exports.renderData=function (req,res) {
 
 exports.calculateProb=function (req,res) {
     var openid= req.query.openid.slice(1);
-    setDefaultOpenId();
     var isWin= false;
     var lotteryChance=0;
     var card=0;
@@ -211,44 +206,4 @@ exports.calculateProb=function (req,res) {
        console.log(access);
    }
 
-//微信签名部分
-  function refreshTicket(appid, appsecret, page, ticket, res) {
-        getToken(appid, appsecret, function (token, err) {
-              if (err === null) {
-                     if (!_.isEmpty(token.access_token)) {
-                           // 获取 jsapi_ticket
-                          var ticket_url = 'https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=' + token.access_token + '&type=jsapi';
 
-                         request.get(ticket_url, function (error, response, body) {
-                                var t = ticket === null ? new WeChatTicket() : ticket;
-                                 var data = JSON.parse(body);
-
-                                if(!data.ticket) res.json({error: response});
-                                 else {
-                                       t.appid = appid;
-                                       t.ticket = data.ticket;
-                                       t.noncestr = sha1(new Date());
-                                      t.expires_in = data.expires_in;
-                                      t.at = parseInt(new Date().getTime() / 1000);
-
-                                      var timestamp = parseInt(new Date().getTime() / 1000);
-                                       var signature = wechatSignature(t, page, timestamp);
-
-                                       t.save(function (err) {
-                                            var json = t.toJSON();
-                                             json.at = timestamp;
-                                            json.signature = signature;
-                                            res.json({ticket: json, error: err});
-                                          });
-                                }
-                            });
-                         } else res.json({error: err});
-                   } else res.json({error: err});
-            });
-     }
-
-   /* 微信签名实现 */
-   function wechatSignature(t, page, timestamp) {
-         var string = "jsapi_ticket=" + t.ticket + "&noncestr=" + t.noncestr + "×tamp=" + timestamp + "&url=" + page;
-         return sha1(string);
-      }

@@ -84,7 +84,7 @@ app.get('/showData',routes.renderData)
 //微信jsapi
 app.post('/getsignature', function(req, res){
     var url = req.body.url;
-    console.log(url);
+    // console.log(url);
     signature.getSignature(config)(url, function(error, result) {
         if (error) {
             res.json({
