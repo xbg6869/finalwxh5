@@ -88,8 +88,8 @@ body {
     z-index: 2;
 }
 .firstPage img:nth-of-type(7) {
-    width: 14.22rem;
-    height: 1.11rem;
+    width: 4.64rem;
+    height: 1.02rem;
     position: absolute;
     left: .62rem;
     top: .45rem;
@@ -127,8 +127,6 @@ body {
     width: 100%;
     height: 100%;
     position: relative;
-    background:url("../img/bg1.png") no-repeat;
-    background-size:cover
 }
 .monsterFall *{
     backface-visibility:hidden;              /* 隐藏被旋转的 div 元素的背面，开启GPU硬件加速 */
