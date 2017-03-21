@@ -103,7 +103,7 @@ body {
     top:0;
     opacity: 0;
     animation-delay: 0s;
-    z-index: 3;
+    z-index: 0;
 }
 
 .rulePage {
@@ -218,6 +218,16 @@ body {
     animation-delay: 0s;
 }
 .monsterFall img:nth-of-type(7) {
+    width: 15.27rem;
+    height: 24.67rem;
+    position: absolute;
+    left: 0;
+    bottom:0;
+    opacity: 0;
+    animation-delay: 0s;
+    z-index: 0;
+}
+.monsterFall img:nth-of-type(8) {
     width: 8.72rem;
     height: 7.91rem;
     position: absolute;
