@@ -35,7 +35,6 @@
         data:{url:url},
         dataType:'json',
         success:function (result) {
-            console.log(result)
             wx.config({
                 debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                 appId: 'wxe8229870ed0f898a', // 必填，公众号的唯一标识
@@ -108,7 +107,6 @@
         }
     }
     preload(
-        "http://xbg6869.oss-cn-beijing.aliyuncs.com/loading.gif",
         "http://xbg6869.oss-cn-beijing.aliyuncs.com/bg1.png",
             /*"http://xbg6869.oss-cn-beijing.aliyuncs.com/awardDescription.png",
         "http://xbg6869.oss-cn-beijing.aliyuncs.com/awardDown.png",
@@ -126,7 +124,8 @@
         "http://xbg6869.oss-cn-beijing.aliyuncs.com/num3.png",
         "http://xbg6869.oss-cn-beijing.aliyuncs.com/openMusic.png",
         "http://xbg6869.oss-cn-beijing.aliyuncs.com/score.png",
-        "http://xbg6869.oss-cn-beijing.aliyuncs.com/timeout.png"
+        "http://xbg6869.oss-cn-beijing.aliyuncs.com/timeout.png",
+        "http://xbg6869.oss-cn-beijing.aliyuncs.com/loading.gif"
     )
 </script>
 </body>
