@@ -57,9 +57,7 @@ $(function () {
         }
         $(document).off('touchstart', '.littleMonster');
         $('#timeout').addClass(' bounceIn  animated')
-        setTimeout(function () {
-            location.hash = '#rankPage';
-        }, 3000)
+
     }
     //小怪移动
     function monsterMove(ele) {
@@ -175,6 +173,11 @@ $(function () {
                 if (result) {
                     localStorage.setItem('inRank', result.inRank);
                     localStorage.setItem('noChance', result.nochance);
+                    //到这里  前端才把inRank 和noChance 返回给前端 并保存在本地， 你接下来的流程从这里开始走
+                    setTimeout(function () {
+                        location.hash = '#rankPage';
+                    }, 3000)
+
                 }
             }
         });
