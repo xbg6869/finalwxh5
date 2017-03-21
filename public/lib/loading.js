@@ -1,6 +1,6 @@
 (function () {
     //在页面未加载完毕之前显示的loading Html自定义内容
-    var _LoadingHtml = '<img src="../img/loading.gif" id="loadingDiv" >';
+    var _LoadingHtml = '<img src="http://xbg6869.oss-cn-beijing.aliyuncs.com/loading.gif" id="loadingDiv" >';
    //呈现loading效果
     document.write(_LoadingHtml);
 
