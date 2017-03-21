@@ -1,6 +1,6 @@
-  var  nochance=sessionStorage.getItem('noChance');
-  var  inRank=sessionStorage.getItem('inRank');
-  console.log(nochance,inRank);
+  var  nochance=localStorage.getItem('noChance');
+  var  inRank=localStorage.getItem('inRank');
+
 
 $(function () {
     var rankPage = $('#rankPage');
@@ -56,6 +56,7 @@ $(function () {
             url: 'checkInfoExists?openid='+localStorage.getItem('openid')+'',
             dataType: 'text',
             success: function (result) {
+                console.log(result)
                 if(inRank=='true' && result=='false') {
                     setTimeout(function () {
                         location.hash = '#infoPage';

@@ -160,6 +160,9 @@ $(function () {
      }
      }
      }*/
+
+
+
     //积分发送至后台并存储
     function saveInfo(data) {
         $.ajax({

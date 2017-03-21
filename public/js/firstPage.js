@@ -4,7 +4,9 @@ var p=document.getElementById('openid').innerHTML;
  localStorage.setItem('openid',p);
 
 
-
+document.getElementById('gif').addEventListener('touchstart', function (ev) {
+    event.preventDefault();
+});
 //img preload
 $(function () {
     var firstPage = $('#firstPage');
