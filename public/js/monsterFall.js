@@ -173,8 +173,8 @@ $(function () {
             success: function (result) {
                 console.log(result);
                 if (result) {
-                    sessionStorage.setItem('inRank', result.inRank);
-                    sessionStorage.setItem('noChance', result.nochance);
+                    localStorage.setItem('inRank', result.inRank);
+                    localStorage.setItem('noChance', result.nochance);
                 }
             }
         });

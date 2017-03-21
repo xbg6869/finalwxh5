@@ -1,5 +1,6 @@
   var  nochance=localStorage.getItem('noChance');
   var  inRank=localStorage.getItem('inRank');
+  console.log(inRank);
 
 
 $(function () {
