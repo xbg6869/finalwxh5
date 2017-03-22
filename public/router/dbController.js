@@ -13,6 +13,15 @@ exports.saveUser=function (userName,openId,headimgurl) {
 
 };
 
+exports.iniReward=function () {
+    rewardCtrl.create({MMM:100,card:100},function (err,doc) {
+        if(err){
+            console.log(err)
+        }else{
+
+        }
+    })
+}
 
 exports.infoExist=function (openid,cb) {
     UserCtrl.find({openid:openid},function (err,doc) {
