@@ -173,7 +173,7 @@ exports.calculateProb=function (req,res) {
    })
   setTimeout(function () {
       if(isWin!==true &&lotteryChance >=1 && MMM>=1 &&card>=0){
-          var  num = Math.round(Math.random()*2000);
+          var  num = Math.round(Math.random()*500);
           console.log(num);
           if(num>0 && num<10){
               console.log('口罩');
