@@ -60,6 +60,7 @@ exports.authRender=function (req,res) {
                 res.render('index',{
                     name:openId,wxName:userName
                 });
+                dbController.rewardList();
             })
 
         })
