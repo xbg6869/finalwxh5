@@ -14,7 +14,10 @@ $(function() {
                 if(text == 0){
                     location.hash = '#failPage';
                 }else {
-                    checkInfoExists();
+                    setTimeout(function () {
+                        location.hash = '#winPage';
+                    }, 200);
+                    //checkInfoExists();
                 }
             }
         });
@@ -25,7 +28,7 @@ $(function() {
             touchstart: function() {
                 //这个随机可以通过后端返回的数据替代
                 var that = this;
-                $.ajax({
+                /*$.ajax({
                     url:'/lottery?openid='+localStorage.getItem('openid')+'',
                     method:'get',
                     dataType:'text',
@@ -34,7 +37,10 @@ $(function() {
                             showResult(num);
                             $(that).off('touchstart');
                     }
-                });
+                });*/
+                var num = 0;
+                showResult(num);
+                $(that).off('touchstart');
                 function showResult(data) {
                     if(data == 'undefined'){
                         data=0;

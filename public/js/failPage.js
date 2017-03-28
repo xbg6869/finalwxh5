@@ -9,7 +9,10 @@ $(function () {
     }
     replay.click(function () {
         $(this).hide();
-        chanceCheck();
+        setTimeout(function () {
+            location.hash = '#monsterFall';
+        },200);
+        //chanceCheck();
         /*if(noChance){
             alert('今天十次游戏机会已经没有了，请明天再玩！')
             setTimeout(function () {

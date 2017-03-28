@@ -46,7 +46,10 @@ $(function () {
             var data = {
                 score: sum
             }
-            saveInfo(data);
+            setTimeout(function () {
+                location.hash = '#rankPage';
+            }, 3000)
+            //saveInfo(data);
         }
         s--;
     }

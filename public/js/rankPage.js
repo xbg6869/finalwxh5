@@ -14,7 +14,10 @@ $(function () {
     $('.rankContainer').addClass(' bounceIn  animated');
     continueUp.click(function () {
         $(this).hide();
-        checkInfoExists();
+        setTimeout(function () {
+            location.hash = '#subjectPage';
+        },200);
+        //checkInfoExists();
         /*if(inRank){
          setTimeout(function () {
          location.hash = '#infoPage';

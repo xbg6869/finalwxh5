@@ -33,7 +33,8 @@ $(function () {
     });
     beginUp.click(function () {
         beginUp.hide();
-        chanceCheck();
+        //chanceCheck();
+        location.hash = '#monsterFall';
     });
     function chanceCheck() {
         $.ajax({

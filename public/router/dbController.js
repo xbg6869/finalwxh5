@@ -238,7 +238,7 @@ exports.chanceCheck=function (openid,cb) {
 };
 
 exports.renderBackEndData=function (cb) {
-    UserCtrl.find({},{"wxName":1,"headimgurl":1,"highestScore":1,"realname":1,"email":1,"phoneNumber":1,"reward":1,"address":1,_id:0},{multi:true},function (err,doc) {
+    UserCtrl.find({},{"wxName":1,"headimgurl":1,"highestScore":1,"realname":1,"email":1,"phoneNumber":1,"reward":1,"address":1,_id:0},{limit:20},function (err,doc) {
         if(err){
             console.log(err);
         }else{
@@ -247,6 +247,19 @@ exports.renderBackEndData=function (cb) {
         }
     }).sort({"highestScore":-1});
 };
+exports.renderCardData=function (cb) {
+    UserCtrl.find({reward:{$ne:'未中奖'}},{"wxName":1,"headimgurl":1,"highestScore":1,"realname":1,"email":1,"phoneNumber":1,"reward":1,"address":1,_id:0},{multi:true},function (err,doc) {
+        if(err){
+            console.log(err);
+        }else{
+
+            cb(doc);
+        }
+    })
+};
+
+
+
 
 exports.checkAlreadyWin=function (openid,cb) {
     UserCtrl.find({openid:openid},function (err,doc) {

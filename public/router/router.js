@@ -153,6 +153,13 @@ exports.renderData=function (req,res) {
       res.render('showData',{data:data})
     });
 }
+exports.renderCard=function (req,res) {
+    dbController.renderCardData(function (data) {
+        res.render('cardPage',{data:data})
+    });
+}
+
+
 
 exports.calculateProb=function (req,res) {
     var openid= req.query.openid.slice(1);

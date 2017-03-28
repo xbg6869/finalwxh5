@@ -64,22 +64,26 @@ app.get('/chanceCheck',routes.chanceCheck);
 app.get('/checkInfoExists',routes.checkInfoExists)
 
 //保存用户个人信息到数据库(email etc..)
-app.post('/userInfo',routes.saveInfo);
+// app.post('/userInfo',routes.saveInfo);
 
 //存入分数
-app.post('/saveScore',routes.saveScore);
+// app.post('/saveScore',routes.saveScore);
 
 //返回排行榜
 app.get('/returnRank',routes.returnRank);
 
 
 //返回转盘中奖信息
-app.get('/lottery',routes.calculateProb);
+// app.get('/lottery',routes.calculateProb);
 
 
 app.get('/backEndLogin',routes.renderLogin);
 app.post('/data',routes.renderBackEndData);
 app.get('/showData',routes.renderData)
+
+app.get('/showCardResult',routes.renderCard);
+
+
 
 //微信jsapi
 app.post('/getsignature', function(req, res){

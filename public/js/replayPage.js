@@ -7,7 +7,8 @@ $(function () {
     }
     replay.click(function () {
         $(this).hide();
-        chanceCheck();
+        location.hash = '#monsterFall';
+        //chanceCheck();
     });
     function chanceCheck() {
         $.ajax({
